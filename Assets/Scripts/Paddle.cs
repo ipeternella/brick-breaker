@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    [SerializeField]
+    public float minRelativePosX = 15f;  // assumes paddle size of 1 relative unit
+    
+    [SerializeField]
+    public float maxRelativePosX = 1f;  // assumes paddle size of 1 relative unit
+    
+    [SerializeField]
+    public float fixedRelativePosY = .62f;  // paddle does not move on the Y directiob
+    
     // Unity units of the WIDTH of the screen (e.g. 16)
     [SerializeField]
     public float screenWidthUnits = 16;
-    private const float PADDLE_FIXED_RELATIVE_POS_Y = 0.38f;
 
     // Start is called before the first frame update
     void Start()
