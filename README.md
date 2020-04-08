@@ -7,8 +7,8 @@ A simple brick breaker game created with Unity and C#!
 For this game, the following tools were used:
 
 - `Unity 2019.3.7f1`;
-- `C#`
-- `Piskel' for drawing 8-bits themed sprites (https://www.piskelapp.com/)
+- `C#`;
+- `Piskel` for drawing 8-bits themed sprites (https://www.piskelapp.com/).
 
 ## Running Tests
 
