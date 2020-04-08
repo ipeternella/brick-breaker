@@ -2,6 +2,10 @@
 
 A simple brick breaker game created with Unity and C#!
 
+## Game so far
+
+![Alt text](Docs/Gameplaydemo.gif)
+
 ## Technologies
 
 For this game, the following tools were used:
