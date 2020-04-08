@@ -33,7 +33,10 @@ public class Paddle : MonoBehaviour
 
     public Vector2 GetUpdatedPaddlePosition(float relativePosX)
     {
-        Vector2 newPaddlePosition = new Vector2(relativePosX, PADDLE_FIXED_RELATIVE_POS_Y);
+        // clamps the X position
+        float clampedRelativePosX = Mathf.Clamp(relativePosX, minRelativePosX, maxRelativePosX);
+        
+        Vector2 newPaddlePosition = new Vector2(clampedRelativePosX, fixedRelativePosY);
         return newPaddlePosition;
     }
     
