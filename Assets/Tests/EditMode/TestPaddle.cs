@@ -14,10 +14,7 @@ namespace Tests
         {
             // creates a new paddle game object
             Paddle paddle = new GameObject().AddComponent<Paddle>();
-            paddle.minRelativePosX = 1;
-            paddle.maxRelativePosX = 15;
-            paddle.fixedRelativePosY = 0.64f;
-            
+
             // method invocation
             Vector2 vector = paddle.GetUpdatedPaddlePosition(10f);
             Vector2 expectedVector = new Vector2(10f, 0.64f );

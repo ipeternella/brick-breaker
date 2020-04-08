@@ -5,13 +5,13 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField]
-    public float minRelativePosX = 15f;  // assumes paddle size of 1 relative unit
+    public float minRelativePosX = 1f;  // assumes paddle size of 1 relative unit
     
     [SerializeField]
-    public float maxRelativePosX = 1f;  // assumes paddle size of 1 relative unit
+    public float maxRelativePosX = 15f;  // assumes paddle size of 1 relative unit
     
     [SerializeField]
-    public float fixedRelativePosY = .62f;  // paddle does not move on the Y directiob
+    public float fixedRelativePosY = .64f;  // paddle does not move on the Y directiob
     
     // Unity units of the WIDTH of the screen (e.g. 16)
     [SerializeField]

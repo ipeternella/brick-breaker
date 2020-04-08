@@ -870,7 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRelativePosX: 15
   maxRelativePosX: 1
-  fixedRelativePosY: 0.62
+  fixedRelativePosY: 0.64
   screenWidthUnits: 16
 --- !u!212 &1292535423
 SpriteRenderer:
