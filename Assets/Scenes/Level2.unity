@@ -2004,6 +2004,11 @@ PrefabInstance:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 561955250}
+    - target: {fileID: 8052374309985418527, guid: 47368a3e0f7a7473cba109fd03b37135,
+        type: 3}
+      propertyPath: initialBallSpeed.y
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47368a3e0f7a7473cba109fd03b37135, type: 3}
 --- !u!4 &889524958 stripped
