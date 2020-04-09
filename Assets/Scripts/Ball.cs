@@ -1,16 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
 
     // configuration based on the UI
-    [SerializeField] 
-    public Paddle paddle;  // bound to the Paddle object on the UI
-    
-    [SerializeField] 
-    public Vector2 initialBallSpeed = new Vector2(2f, 10f);  // bound to the Paddle object on the UI
+    [SerializeField] public Paddle paddle;  // bound to the Paddle object on the UI
+    [SerializeField] public Vector2 initialBallSpeed = new Vector2(2f, 10f);  // bound to the Paddle object on the UI
+    [SerializeField] public AudioClip[] bumpAudioClips;  // audio clips defined on the UI of the scene
     
     // state
     public Vector2 distanceToTopOfPaddle;
@@ -62,4 +62,17 @@ public class Ball : MonoBehaviour
         }
     }
 
+    /**
+     * Randomly plays ball collision sounds.
+     */
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (hasBallBeenShot)
+        {
+            var randomBumpAudioIndex = Random.Range(0, bumpAudioClips.Length);
+            AudioClip bumpAudio = bumpAudioClips[randomBumpAudioIndex];
+            
+            GetComponent<AudioSource>().PlayOneShot(bumpAudio);
+        }
+    }
 }
