@@ -9,6 +9,18 @@ namespace Tests
     public class TestPaddle
     {
 
+        public Paddle TestPaddleFactory(Vector2 initialPosition)
+        {
+            var gameObject = new GameObject();
+            Paddle paddle = gameObject.AddComponent<Paddle>();
+            
+            // adds state to the object 
+            paddle.gameObject.AddComponent<Rigidbody2D>();
+            paddle.transform.position = initialPosition;
+            
+            return paddle;
+        }
+
         [Test]
         public void TestGetUpdatedPaddlePosition_ShouldReturnNonClampedValue()
         {

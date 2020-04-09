@@ -34,8 +34,11 @@ public class Ball : MonoBehaviour
         // attaches ball to the paddle if it hasn't been shot yet 
         if (!hasBallBeenShot)
         {
+            // checks for mouse clicks
+            bool hasMouseClick = Input.GetMouseButtonDown(MOUSE_PRIMARY_BUTTON);
+            
             FixBallOnTopOfPaddle(paddle.transform.position, distanceToTopOfPaddle);
-            ShootBallOnClick(initialBallSpeed);
+            ShootBallOnClick(initialBallSpeed, hasMouseClick);
         }
     }
     
@@ -50,9 +53,9 @@ public class Ball : MonoBehaviour
     /**
      * Shoots the ball for the first time upon the first mouse click.
      */
-    public void ShootBallOnClick(Vector2 initialBallSpeed)
+    public void ShootBallOnClick(Vector2 initialBallSpeed, bool hasMouseClick)
     {
-        if (Input.GetMouseButtonDown(MOUSE_PRIMARY_BUTTON))
+        if (hasMouseClick)
         {
             hasBallBeenShot = true;
             gameObject.GetComponent<Rigidbody2D>().velocity = initialBallSpeed;
