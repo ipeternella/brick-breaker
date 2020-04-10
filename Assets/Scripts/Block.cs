@@ -9,10 +9,16 @@ public class Block : MonoBehaviour
     [SerializeField] public float soundVolume = 0.05f;
     
     // state
+    private GameState gameState;
+    private GameConfig gameConfig;
     private LevelController levelController;
 
     void Start()
     { 
+        // game configs and state
+        gameConfig = FindObjectOfType<GameConfig>();
+        gameState = FindObjectOfType<GameState>();            
+        
         // selects other game object without SCENE binding: programatically via API
         levelController = FindObjectOfType<LevelController>();
 
@@ -34,6 +40,9 @@ public class Block : MonoBehaviour
      */    
     private void DestroyItself()
     {
+        // adds player points
+        gameState.AddToPlayerScore(gameConfig.pointsPerBlock);
+
         // plays destroyed block sound 
         AudioSource.PlayClipAtPoint(destroyedBlockSound, Camera.current.transform.position, soundVolume);
         Destroy(this.gameObject);
@@ -41,4 +50,5 @@ public class Block : MonoBehaviour
         // increments destroyed blocks of the level
         levelController.DecrementBlocksCounter();
     }
+    
 }
