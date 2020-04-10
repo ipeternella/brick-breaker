@@ -2380,6 +2380,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0902ecd117f0409aba821631d2402c7, type: 3}
+--- !u!114 &897036651 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 897036651, guid: 90896b7a649f04508abbdd1f5af8cc3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4017923910434109500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &910486982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8946811745996912616, guid: f0902ecd117f0409aba821631d2402c7,
@@ -4683,6 +4695,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 668583941499876363, guid: a7e11b3d9c273421d9cfd603eb4a853b,
+        type: 3}
+      propertyPath: playerScoreText
+      value: 
+      objectReference: {fileID: 897036651}
     - target: {fileID: 4100342567248336865, guid: a7e11b3d9c273421d9cfd603eb4a853b,
         type: 3}
       propertyPath: m_Name
@@ -5189,18 +5206,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0902ecd117f0409aba821631d2402c7, type: 3}
---- !u!114 &1951767006 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3314232321211368121, guid: 785c7ea4e9aee464f97782cb184453aa,
-    type: 3}
-  m_PrefabInstance: {fileID: 3314232322617351015}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc20dad7d5a9240b5996a7214bfe10f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2016011777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5921,16 +5926,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4017923909716531810, guid: 90896b7a649f04508abbdd1f5af8cc3c,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1951767006}
-    - target: {fileID: 4017923910874861306, guid: 90896b7a649f04508abbdd1f5af8cc3c,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4017923910874861307, guid: 90896b7a649f04508abbdd1f5af8cc3c,
         type: 3}
       propertyPath: m_LocalPosition.x
