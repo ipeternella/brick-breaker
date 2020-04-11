@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = System.Object;
 
 public class Block : MonoBehaviour
 {
     [SerializeField] public AudioClip destroyedBlockSound;
     [SerializeField] public float soundVolume = 0.05f;
+    [SerializeField] public GameObject destroyedBlockParticlesVFX;
     
     // state
     //private GameState gameState;
@@ -43,12 +45,35 @@ public class Block : MonoBehaviour
         var gameState = FindObjectOfType<GameState>();  // singleton
         gameState.AddToPlayerScore(gameConfig.pointsPerBlock);
 
-        // plays destroyed block sound 
-        AudioSource.PlayClipAtPoint(destroyedBlockSound, Camera.current.transform.position, soundVolume);
-        Destroy(this.gameObject);
+        // plays VFX and SFX for the destruction
+        PlayDestructionEffects();
 
         // increments destroyed blocks of the level
         levelController.DecrementBlocksCounter();
     }
-    
+
+    /**
+     * Plays VFX and SFX when a block is destroyed.
+     */
+    private void PlayDestructionEffects()
+    {
+        // displays the block destruction particles VFX
+        ShowDestroyedBlockParticles();
+
+        // plays destroyed block sound SFX
+        AudioSource.PlayClipAtPoint(destroyedBlockSound, Camera.current.transform.position, soundVolume);
+        Destroy(this.gameObject);
+    }
+
+    /**
+     * Method to render destroyed blocks particles system VFX.
+     */
+    private void ShowDestroyedBlockParticles()
+    {
+        // using Unity's API to instantiate a new GameObject -- the particles VFX
+        Vector3 blockPosition = this.transform.position;
+        Quaternion blockRotation = this.transform.rotation;
+        
+        GameObject destroyedBlockParticles = Instantiate(destroyedBlockParticlesVFX, blockPosition, blockRotation);
+    }
 }
