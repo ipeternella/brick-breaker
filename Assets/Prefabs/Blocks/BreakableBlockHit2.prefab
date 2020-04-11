@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8946811745996912622}
   - component: {fileID: 8946811745996912619}
   m_Layer: 0
-  m_Name: TransparentBlock
-  m_TagString: Transparent
+  m_Name: BreakableBlockHit2
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8101adfa1bfe540579607d0846c44a1c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3254902}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8946811745996912623}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cdd846b6396e41a8a0438d2463793cd, type: 3}
   m_Name: 
@@ -99,7 +99,10 @@ MonoBehaviour:
   soundVolume: 0.2
   destroyedBlockParticlesVFX: {fileID: 4668744615842279802, guid: 763fbccf87ffe4cab81bb6cf610ab765,
     type: 3}
-  maxHits: 0
+  maxHits: 2
+  damageSprites:
+  - {fileID: 21300000, guid: 8101adfa1bfe540579607d0846c44a1c, type: 3}
+  - {fileID: 21300000, guid: 9bad229c980bb4e639ea68b2b21f5998, type: 3}
 --- !u!61 &8946811745996912619
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -107,7 +110,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8946811745996912623}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
