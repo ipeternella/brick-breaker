@@ -77,11 +77,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.11485406
       objectReference: {fileID: 0}
-    - target: {fileID: 8946811745996912622, guid: f0902ecd117f0409aba821631d2402c7,
-        type: 3}
-      propertyPath: soundVolume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8946811745996912623, guid: f0902ecd117f0409aba821631d2402c7,
         type: 3}
       propertyPath: m_Name

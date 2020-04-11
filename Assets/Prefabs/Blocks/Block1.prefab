@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedBlockSound: {fileID: 8300000, guid: 5023d9c2017a3402388f883d5ea3442c, type: 3}
   soundVolume: 0.2
+  destroyedBlockParticlesVFX: {fileID: 4668744615842279802, guid: 763fbccf87ffe4cab81bb6cf610ab765,
+    type: 3}
 --- !u!61 &8946811745996912619
 BoxCollider2D:
   m_ObjectHideFlags: 0
