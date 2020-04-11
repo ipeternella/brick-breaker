@@ -1,20 +1,26 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using Object = System.Object;
 
 public class Block : MonoBehaviour
 {
+    // configuration
     [SerializeField] public AudioClip destroyedBlockSound;
     [SerializeField] public float soundVolume = 0.05f;
     [SerializeField] public GameObject destroyedBlockParticlesVFX;
-      
-    // state
-    //private GameState gameState;
+    [SerializeField] public int maxHits;
+    [SerializeField] public Sprite[] damageSprites;
+
+    // references to other objects
     private GameConfig gameConfig;
     private LevelController levelController;
 
+    // state
+    private int _currentHints = 0;
+    
     void Start()
     { 
         // game configs
@@ -32,18 +38,66 @@ public class Block : MonoBehaviour
      */
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.tag == "Breakable") DestroyItself();
+        if (this.tag == "Breakable")
+        {
+            // increases number of hits and destroy it, if necessary
+            _currentHints++;
+            
+            if (_currentHints < maxHits)
+            {
+                // Updates sprite image if block has taken too much damage
+                UpdateSpriteIfTooDamaged();
+            }
+            else
+            {
+                DestroyItself();    
+            }
+        }
     }
+    
+    /**
+     * Updates the block damage sprite when necessary based on the amount of taken hits.
+     */
+    private void UpdateSpriteIfTooDamaged()
+    {
+        var ix = GetDamageSpriteIndex(this._currentHints, this.maxHits, this.damageSprites.Length);
+
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = damageSprites[ix];
+    }
+    
+    /**
+     * Calculates the number of required hits to change to the next damage sprite and based on that,
+     * returns the sprite damage index of the sprites array for appropriate rendering.
+     */
+    private int GetDamageSpriteIndex(int currentHits, int totalHits, int numberOfDamageSprites)
+    {
+        var numberOfRequiredHitsToChangeSprite = totalHits/numberOfDamageSprites;
+        var damageSpriteIndex = currentHits / numberOfRequiredHitsToChangeSprite;
+
+        // returns the right dmg sprite or the last one
+        if (damageSpriteIndex < numberOfDamageSprites)
+        {
+            return damageSpriteIndex;
+        }
+        return numberOfDamageSprites - 1;
+    }
+    
 
     /**
      * Upon a collision, the block must be destroyed. Once a block is destroyed, the blocks counter
-     * of the level controller must be decremented.
+     * of the level controller must be decremented, the score must be updated and effects played.
+     *
+     * The score each blocks gives is:
+     *
+     *  score = baseBlockValue * maxHits
+     *
+     * Hence, a block that takes 3 hits gives 3x more points than one that takes one hit.
      */    
     private void DestroyItself()
     {
         // adds player points
         var gameState = FindObjectOfType<GameState>();  // singleton
-        gameState.AddToPlayerScore(gameConfig.pointsPerBlock);
+        gameState.AddToPlayerScore(gameConfig.pointsPerBlock * maxHits);
 
         // plays VFX and SFX for the destruction
         PlayDestructionEffects();
