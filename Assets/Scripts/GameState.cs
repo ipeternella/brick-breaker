@@ -43,4 +43,14 @@ public class GameState : MonoBehaviour
         playerScore += points;
         playerScoreText.text = playerScore.ToString();
     }
+
+    /**
+     * Resets the game state by destroying the singleton. On each scene
+     * it's not destroyed due to the DontDestroyOnLoad. However, when
+     * restarting the game, it's destruction is necessary.
+     */
+    public void ResetState()
+    {
+        Destroy(this.gameObject);
+    }
 }

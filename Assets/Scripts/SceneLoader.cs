@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour
    // always the 0 indexed scene
    public void LoadStartScene()
    {
+      FindObjectOfType<GameState>().ResetState();
       SceneManager.LoadScene(0);
    }
 
