@@ -11,17 +11,23 @@ public class Ball : MonoBehaviour
     [SerializeField] public Paddle paddle;  // bound to the Paddle object on the UI
     [SerializeField] public Vector2 initialBallSpeed = new Vector2(2f, 10f);  // bound to the Paddle object on the UI
     [SerializeField] public AudioClip[] bumpAudioClips;  // audio clips defined on the UI of the scene
+    [SerializeField] public float bounceRandomnessFactor = 0.5f;
     
     // state
+    private Rigidbody2D _rigidBody2D;
+    private AudioSource _audioSource;
     public Vector2 distanceToTopOfPaddle;
     public bool hasBallBeenShot = false;
-    
+
     // inner configuration
     private int MOUSE_PRIMARY_BUTTON = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
+        
         var ballPosition = transform.position;
         var paddlePosition = paddle.transform.position;
 
@@ -58,10 +64,23 @@ public class Ball : MonoBehaviour
         if (hasMouseClick)
         {
             hasBallBeenShot = true;
-            gameObject.GetComponent<Rigidbody2D>().velocity = initialBallSpeed;
+            _rigidBody2D.velocity = initialBallSpeed;
         }
     }
 
+    /**
+     * Computes a random vector to add to the ball's velocity vector in order to avoid
+     * repetitive ball collisions throughout the game.
+     */
+    public Vector2 GetRandomVelocityBounce()
+    {
+
+        var randomVelocityX = Random.Range(0, this.bounceRandomnessFactor);
+        var randomVelocityY = Random.Range(0, this.bounceRandomnessFactor);
+        
+        return new Vector2(randomVelocityX, randomVelocityY);
+    }
+    
     /**
      * Randomly plays ball collision sounds.
      */
@@ -72,7 +91,8 @@ public class Ball : MonoBehaviour
             var randomBumpAudioIndex = Random.Range(0, bumpAudioClips.Length);
             AudioClip bumpAudio = bumpAudioClips[randomBumpAudioIndex];
             
-            GetComponent<AudioSource>().PlayOneShot(bumpAudio);
+            _audioSource.PlayOneShot(bumpAudio);
+            _rigidBody2D.velocity += GetRandomVelocityBounce();
         }
     }
 }
