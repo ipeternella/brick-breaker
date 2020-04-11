@@ -9,7 +9,7 @@ public class Block : MonoBehaviour
     [SerializeField] public AudioClip destroyedBlockSound;
     [SerializeField] public float soundVolume = 0.05f;
     [SerializeField] public GameObject destroyedBlockParticlesVFX;
-    
+      
     // state
     //private GameState gameState;
     private GameConfig gameConfig;
@@ -23,8 +23,8 @@ public class Block : MonoBehaviour
         // selects other game object without SCENE binding: programatically via API
         levelController = FindObjectOfType<LevelController>();
 
-        // every block on the scene, increments it by one 
-        levelController.IncrementBlocksCounter();
+        // increment the block counter if the block's breakable
+        if (this.tag == "Breakable") levelController.IncrementBlocksCounter();
     }
     
     /**
@@ -32,7 +32,7 @@ public class Block : MonoBehaviour
      */
     private void OnCollisionEnter2D(Collision2D other)
     {
-        DestroyItself();
+        if (this.tag == "Breakable") DestroyItself();
     }
 
     /**
