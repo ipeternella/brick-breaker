@@ -14,7 +14,7 @@ public class MenuSelector : MonoBehaviour
 
     // status
     private int _selectedMenuIndex = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,20 +34,27 @@ public class MenuSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var maxOptionIndex = this.menuOptions.Length - 1;
-
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            this._selectedMenuIndex++;
-        }
+            HandleVerticalMovement(KeyCode.DownArrow);
+        } 
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            this._selectedMenuIndex--;
+            HandleVerticalMovement(KeyCode.UpArrow);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            GameObject menuOption = this.menuOptions[_selectedMenuIndex];
+            HandleReturn();
+        }
 
+    }
+
+    private void HandleReturn()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            GameObject menuOption = this.menuOptions[_selectedMenuIndex];
+        
             if (menuOption.name == "MenuOptionStart")
             {
                 FindObjectOfType<SceneLoader>().LoadNextScene();
@@ -61,8 +68,21 @@ public class MenuSelector : MonoBehaviour
                 FindObjectOfType<SceneLoader>().Quit();
             }
         }
+    }
 
-        // clamping input
+    private void HandleVerticalMovement(KeyCode key)
+    {
+        var maxOptionIndex = this.menuOptions.Length - 1;
+
+        // updating selected menu index and safety clamping
+        if (key == KeyCode.DownArrow)
+        {
+            this._selectedMenuIndex++;
+        }
+        else if (key == KeyCode.UpArrow)
+        {
+            this._selectedMenuIndex--;
+        }
         this._selectedMenuIndex = Mathf.Clamp(_selectedMenuIndex, 0, maxOptionIndex);
 
         // updating position
