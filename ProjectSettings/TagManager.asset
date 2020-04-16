@@ -7,6 +7,7 @@ TagManager:
   - Breakable
   - Unbreakable
   - Transparent
+  - MenuOptionWithChild
   layers:
   - Default
   - TransparentFX
