@@ -12,10 +12,16 @@ public class SceneLoader : MonoBehaviour
       SceneManager.LoadScene(currentSceneIndex + 1);
    }
 
+   // loads scene by its name
+   public void LoadSceneByName(string sceneName)
+   {
+      SceneManager.LoadScene(sceneName: sceneName);
+   }
+
    // always the 0 indexed scene
    public void LoadStartScene()
    {
-      FindObjectOfType<GameState>().ResetState();
+      // FindObjectOfType<GameState>().ResetState();
       SceneManager.LoadScene(0);
    }
 
