@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 6548484295650279717}
   - component: {fileID: 6548484295650279716}
   m_Layer: 0
-  m_Name: GameState
+  m_Name: GameSession
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScoreText: {fileID: 6548484296058994440}
-  playerScore: 0
 --- !u!1 &6548484296058994446
 GameObject:
   m_ObjectHideFlags: 0

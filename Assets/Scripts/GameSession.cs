@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     
-    // state
+    // config
     [SerializeField] private TextMeshProUGUI playerScoreText;
-    [SerializeField] private int playerScore = 0;
     
-    // Singleton implementation
-    private static GameState _instance;
-    public static GameState Instance => _instance;
+    // state
+    private int playerScore = 0;
+    
+    
+    // Singleton implementation (with getter)
+    private static GameSession _instance;
+    public static GameSession Instance => _instance;
 
     // Initialization hook before start
     private void Awake() 
