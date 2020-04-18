@@ -1,23 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    
     // config
     [SerializeField] private TextMeshProUGUI playerScoreText;
     
     // state
-    private int playerScore = 0;
-    
-    
-    // Singleton implementation (with getter)
     private static GameSession _instance;
-    public static GameSession Instance => _instance;
-
-    // Initialization hook before start
+    public int PlayerScore { get; set; }
+    public int PlayerLives { get; set; }
+    public int PointsPerBlock { get; set; }
+    public float GameSpeed { get; set; }
+    
+    /**
+     * Singleton implementation.
+     */
     private void Awake() 
     { 
         // this is not the first instance so destroy it!
@@ -32,28 +30,30 @@ public class GameSession : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     
-    // Start is called before the first frame update
+    /**
+     * Before first frame.
+     */
     void Start()
     {
-        playerScoreText.text = playerScore.ToString();
+        playerScoreText.text = this.PlayerScore.ToString();
     }
 
     /**
-     * Updates player score with given points and also updates the UI score.
+     * Update per-frame.
      */
-    public void AddToPlayerScore(int points)
+    void Update()
     {
-        playerScore += points;
-        playerScoreText.text = playerScore.ToString();
+        Time.timeScale = this.GameSpeed;
+        playerScoreText.text = this.PlayerScore.ToString();
     }
 
     /**
-     * Resets the game state by destroying the singleton. On each scene
-     * it's not destroyed due to the DontDestroyOnLoad. However, when
-     * restarting the game, it's destruction is necessary.
+     * Updates player score with given points and also updates the UI score. The total points that are
+     * calculated is based on the basis value (this.PointsPerBlock).
      */
-    public void ResetState()
+    public void AddToPlayerScore(int blockMaxHits)
     {
-        Destroy(this.gameObject);
+        this.PlayerScore += blockMaxHits * this.PointsPerBlock;
+        playerScoreText.text = this.PlayerScore.ToString();
     }
 }

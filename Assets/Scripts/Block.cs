@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
-using UnityEngine;
-using Object = System.Object;
+﻿using UnityEngine;
 
 public class Block : MonoBehaviour
 {
@@ -15,22 +10,18 @@ public class Block : MonoBehaviour
     [SerializeField] public Sprite[] damageSprites;
 
     // references to other objects
-    private GameConfig gameConfig;
-    private LevelController levelController;
+    private LevelController _levelController;
 
     // state
-    private int _currentHints = 0;
+    private int _currentHits = 0;
     
     void Start()
-    { 
-        // game configs
-        gameConfig = FindObjectOfType<GameConfig>();
-
+    {
         // selects other game object without SCENE binding: programatically via API
-        levelController = FindObjectOfType<LevelController>();
+        _levelController = FindObjectOfType<LevelController>();
 
         // increment the block counter if the block's breakable
-        if (this.tag == "Breakable") levelController.IncrementBlocksCounter();
+        if (this.tag == "Breakable") _levelController.IncrementBlocksCounter();
     }
     
     /**
@@ -41,9 +32,9 @@ public class Block : MonoBehaviour
         if (this.tag == "Breakable")
         {
             // increases number of hits and destroy it, if necessary
-            _currentHints++;
+            _currentHits++;
             
-            if (_currentHints < maxHits)
+            if (_currentHits < maxHits)
             {
                 // Updates sprite image if block has taken too much damage
                 UpdateSpriteIfTooDamaged();
@@ -60,7 +51,7 @@ public class Block : MonoBehaviour
      */
     private void UpdateSpriteIfTooDamaged()
     {
-        var ix = GetDamageSpriteIndex(this._currentHints, this.maxHits, this.damageSprites.Length);
+        var ix = GetDamageSpriteIndex(this._currentHits, this.maxHits, this.damageSprites.Length);
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = damageSprites[ix];
     }
@@ -97,13 +88,13 @@ public class Block : MonoBehaviour
     {
         // adds player points
         var gameState = FindObjectOfType<GameSession>();  // singleton
-        gameState.AddToPlayerScore(gameConfig.pointsPerBlock * maxHits);
+        gameState.AddToPlayerScore(maxHits);
 
         // plays VFX and SFX for the destruction
         PlayDestructionEffects();
 
         // increments destroyed blocks of the level
-        levelController.DecrementBlocksCounter();
+        _levelController.DecrementBlocksCounter();
     }
 
     /**

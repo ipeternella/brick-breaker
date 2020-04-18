@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 using TMPro;
 
 public class MenuOptionsSelector : VerticalMenuSelector
@@ -12,8 +9,10 @@ public class MenuOptionsSelector : VerticalMenuSelector
     // status
     private readonly string MENU_OPTION_BACK = "MenuOptionBack";
     private readonly string MENU_OPTION_GAME_MODE = "MenuOptionMode";
-    
-    private readonly string[] _gameModes = new string[]{"easy", "normal", "insane"};
+
+    // private GameConfig gameConfig;
+    private GameConfig _gameConfig;
+    private readonly string[] _gameModes = GameConfig.AllowedGameModes;
     private int _selectedGameModeIndex = 0;
     
     /**
@@ -21,6 +20,7 @@ public class MenuOptionsSelector : VerticalMenuSelector
      */
     void Start()
     {
+        this._gameConfig = GameConfig.Instance;  // singleton
         transform.position = GetMenuSelectorPosition();
     }
 
@@ -37,8 +37,11 @@ public class MenuOptionsSelector : VerticalMenuSelector
             this.HandleLeftRightArrowPresses();
         
         // ENTER is only allowed for the 'back' option of the menu
+        // also sets the current game mode option on the game config instance
         if (this.GetCurrentMenu().name == this.MENU_OPTION_BACK)
-            this.HandleReturn();
+        {
+            this.HandleReturn();            
+        }
     }
     
     /**
@@ -48,7 +51,10 @@ public class MenuOptionsSelector : VerticalMenuSelector
     private void HandleReturn()
     {
         if (Input.GetKeyDown(KeyCode.Return))
+        {
+            this._gameConfig.GameMode = GetSelectedGameMode();
             this.sceneLoader.LoadStartScene();
+        }
     }
 
     /**
@@ -64,8 +70,16 @@ public class MenuOptionsSelector : VerticalMenuSelector
         
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
             this._selectedGameModeIndex--;
-        this._selectedGameModeIndex = Mathf.Clamp(_selectedGameModeIndex, 0, maxOptionIndex);
         
-        gameModeText.text = this._gameModes[this._selectedGameModeIndex];
+        this._selectedGameModeIndex = Mathf.Clamp(_selectedGameModeIndex, 0, maxOptionIndex);
+        gameModeText.text = GetSelectedGameMode();
+    }
+
+    /**
+     * Returns the selected game mode.
+     */
+    private string GetSelectedGameMode()
+    {
+        return this._gameModes[this._selectedGameModeIndex];
     }
 }
