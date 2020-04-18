@@ -304,7 +304,6 @@ GameObject:
   - component: {fileID: 693871565}
   - component: {fileID: 693871568}
   - component: {fileID: 693871567}
-  - component: {fileID: 693871566}
   - component: {fileID: 693871569}
   m_Layer: 5
   m_Name: MenuSelector
@@ -332,21 +331,6 @@ RectTransform:
   m_AnchoredPosition: {x: -145.2, y: 19}
   m_SizeDelta: {x: 90, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &693871566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693871564}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e809032646597415b9375e55a0c451d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verticalMenuOptions: []
-  sceneLoader: {fileID: 0}
-  gameModeText: {fileID: 1398482821}
 --- !u!114 &693871567
 MonoBehaviour:
   m_ObjectHideFlags: 0
