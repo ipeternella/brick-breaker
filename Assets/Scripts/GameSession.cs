@@ -5,9 +5,14 @@ public class GameSession : MonoBehaviour
 {
     // config
     [SerializeField] private TextMeshProUGUI playerScoreText;
-    
+    [SerializeField] private TextMeshProUGUI gameLevelText;
+    [SerializeField] private TextMeshProUGUI playerLivesText;
+
     // state
     private static GameSession _instance;
+    public static GameSession Instance => _instance;
+
+    public int GameLevel { get; set; }
     public int PlayerScore { get; set; }
     public int PlayerLives { get; set; }
     public int PointsPerBlock { get; set; }
@@ -36,6 +41,8 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         playerScoreText.text = this.PlayerScore.ToString();
+        gameLevelText.text = this.GameLevel.ToString();
+        playerLivesText.text = this.PlayerLives.ToString();
     }
 
     /**
@@ -44,7 +51,11 @@ public class GameSession : MonoBehaviour
     void Update()
     {
         Time.timeScale = this.GameSpeed;
+        
+        // UI updates
         playerScoreText.text = this.PlayerScore.ToString();
+        gameLevelText.text = this.GameLevel.ToString();
+        playerLivesText.text = this.PlayerLives.ToString();
     }
 
     /**
