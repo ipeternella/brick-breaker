@@ -28,7 +28,8 @@ public class MenuOptionsSelector : VerticalMenuSelector
         transform.position = GetMenuSelectorPosition();
         
         // option based on game config
-        gameModeText.text = this._gameModes[GetGameModeIndex(configGameMode)];
+        this._selectedGameModeIndex = GetGameModeIndex(configGameMode);
+        gameModeText.text = this._gameModes[this._selectedGameModeIndex];
     }
 
     /**
@@ -84,7 +85,6 @@ public class MenuOptionsSelector : VerticalMenuSelector
             UpdateGameModeText();
         }
         
-
     }
 
     /**
