@@ -56,33 +56,33 @@ public class GameConfig
             gameModeConfig.Add("playerLives", 3);
             gameModeConfig.Add("gameSpeed", 0.6f);
             gameModeConfig.Add("pointsPerBlock", 50);
-            gameModeConfig.Add("playerScore", 50);
         }
         else if (this._gameMode == "normal")
         {
             gameModeConfig.Add("playerLives", 3);
             gameModeConfig.Add("gameSpeed", 0.8f);
             gameModeConfig.Add("pointsPerBlock", 100);
-            gameModeConfig.Add("playerScore", 100);
         }
         else if (this._gameMode == "hard")
         {
             gameModeConfig.Add("playerLives", 2);
             gameModeConfig.Add("gameSpeed", 1.2f);
             gameModeConfig.Add("pointsPerBlock", 300);
-            gameModeConfig.Add("playerScore", 300);
         }
         else
         {
             gameModeConfig.Add("playerLives", 1);
             gameModeConfig.Add("gameSpeed", 1.4f);
             gameModeConfig.Add("pointsPerBlock", 500);
-            gameModeConfig.Add("playerScore", 500);
+            
         }
 
         // regardless of the game play mode 
+        gameModeConfig.Add("playerScore", 0);
         
-
+        // initial level
+        gameModeConfig.Add("gameLevel", 1);
+        
         return gameModeConfig;
     }
 }
