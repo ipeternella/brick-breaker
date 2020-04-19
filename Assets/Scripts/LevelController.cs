@@ -27,6 +27,10 @@ public class LevelController : MonoBehaviour
 
         if (blocksCounter <= 0)
         {
+            var gameSesion = GameSession.Instance;
+
+            // increases game level
+            gameSesion.GameLevel++;
             _sceneLoader.LoadNextScene();
         }
     }
