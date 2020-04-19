@@ -1,11 +1,13 @@
 # Brick Breaker
 
-A simple brick breaker game created with Unity and C#! It contains:
+A simple brick breaker game created with Unity and C#!
 
-* Main menu and options menu which allow to change the game difficulty (easy, normal, hard, inhuman);
-* 3 game play levels;
-* Player score, lives and game speed that changes according to game difficulty;
-* Various blocks (many colors, sizes) with that can take more hits;
+### Features
+
+* Main menu and options menu which allows the player to change the `game difficulty` (easy, normal, hard, inhuman);
+* 3 game play levels (so far);
+* `Player score`, `player lives` and `game speed` that changes according to game difficulty;
+* `Various blocks` (many colors, sizes) with that can take more hits;
 * Particle effects upon block destruction;
 * VFX and SFX for ball bounces and block destruction (open source audio);
 
