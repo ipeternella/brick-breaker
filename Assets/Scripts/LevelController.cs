@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
+    private readonly string GAME_OVER_SCENE_NAME = "Scenes/GameOver";
+    private readonly int NUMBER_OF_GAME_LEVELS = 3;
+    
     // UI elements
     [SerializeField] int blocksCounter;
 
@@ -27,10 +30,16 @@ public class LevelController : MonoBehaviour
 
         if (blocksCounter <= 0)
         {
-            var gameSesion = GameSession.Instance;
+            var gameSession = GameSession.Instance;
+            
+            // check for game over
+            if (gameSession.GameLevel >= NUMBER_OF_GAME_LEVELS)
+            {
+                _sceneLoader.LoadSceneByName(GAME_OVER_SCENE_NAME);
+            }
 
             // increases game level
-            gameSesion.GameLevel++;
+            gameSession.GameLevel++;
             _sceneLoader.LoadNextScene();
         }
     }
