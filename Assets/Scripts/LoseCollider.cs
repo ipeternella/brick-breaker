@@ -13,8 +13,25 @@ public class LoseCollider : MonoBehaviour
         // ball triggered an event with the lose collider 
         if (other.name.ToLower() == "ball")
         {
-            SceneManager.LoadScene(GAME_OVER_SCENE_NAME);
+            var gameSession = GameSession.Instance;
+            
+            // checks for game over
+            if (gameSession.PlayerLives <= 0)
+            {
+                SceneManager.LoadScene(GAME_OVER_SCENE_NAME);
+                return;
+            }
+
+            // deduces a game life from the player
+            gameSession.PlayerLives--;
+            FixBallOnPaddleAfterLoss();
+            
         }
     }
-    
+
+    private void FixBallOnPaddleAfterLoss()
+    {
+        var ball = FindObjectOfType<Ball>();
+        ball.hasBallBeenShot = false;
+    }
 }
