@@ -26,8 +26,13 @@ The object is simple: BREAK all the blocks without having your player lives redu
 
 ## Game Modes (difficulties)
 
-The `harder` the game is, the `less lives` the player has, the `faster the ball` speed is and
-`higher` are the points that are given per `destructed block`!
+The `harder` the game is... 
+
+- the `less lives` the player has;
+- the `faster the ball` speed is;
+- `higher rewards` are offered per `destructed block`!
+
+So... the old high risk, high reward dilemma, huh? YES! 
 
 ### 1. Easy
 
