@@ -3,18 +3,16 @@
 public class GameSessionLoader : MonoBehaviour
 {
     // state
-    private GameSession _gameSession;
     private GameConfig _gameConfig;
-    
+    private GameSession _gameSession;
+
     /**
      * Before first frame.
      */
     void Start()
     {
-        // obtains game object and class singletons
-        this._gameSession = FindObjectOfType<GameSession>();  
-        this._gameConfig = GameConfig.Instance; 
-        
+        this._gameSession = GameSession.Instance;
+        this._gameConfig = GameConfig.Instance;
         StartGameSession();
     }
 
@@ -25,10 +23,11 @@ public class GameSessionLoader : MonoBehaviour
     private void StartGameSession()
     {
         var gameModeConfig = this._gameConfig.GetGameModeConfig();
-
+        
         this._gameSession.PlayerLives = (int) gameModeConfig["playerLives"];
         this._gameSession.PointsPerBlock = (int) gameModeConfig["pointsPerBlock"];
         this._gameSession.GameSpeed = (float) gameModeConfig["gameSpeed"];
         this._gameSession.PlayerScore = (int) gameModeConfig["playerScore"];
+        this._gameSession.GameLevel = (int) gameModeConfig["gameLevel"];
     }
 }
