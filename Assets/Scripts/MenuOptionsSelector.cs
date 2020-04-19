@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using TMPro;
 
 public class MenuOptionsSelector : VerticalMenuSelector
 {
     // configuration
-    [SerializeField] public TMP_Text gameModeText;
+    [SerializeField] public TextMeshProUGUI gameModeText;
     
     // status
     private readonly string MENU_OPTION_BACK = "MenuOptionBack";
@@ -21,7 +22,13 @@ public class MenuOptionsSelector : VerticalMenuSelector
     void Start()
     {
         this._gameConfig = GameConfig.Instance;  // singleton
+        var configGameMode = this._gameConfig.GameMode;
+        
+        // selector current position
         transform.position = GetMenuSelectorPosition();
+        
+        // option based on game config
+        gameModeText.text = this._gameModes[GetGameModeIndex(configGameMode)];
     }
 
     /**
@@ -63,13 +70,29 @@ public class MenuOptionsSelector : VerticalMenuSelector
      */
     private void HandleLeftRightArrowPresses()
     {
-        var maxOptionIndex = this._gameModes.Length - 1;
-        
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
             this._selectedGameModeIndex++;
+            UpdateGameModeText();
+        }
+            
         
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             this._selectedGameModeIndex--;
+            UpdateGameModeText();
+        }
+        
+
+    }
+
+    /**
+     * Updates game mode text on the UI.
+     */
+    private void UpdateGameModeText()
+    {
+        var maxOptionIndex = this._gameModes.Length - 1;
         
         this._selectedGameModeIndex = Mathf.Clamp(_selectedGameModeIndex, 0, maxOptionIndex);
         gameModeText.text = GetSelectedGameMode();
@@ -81,5 +104,13 @@ public class MenuOptionsSelector : VerticalMenuSelector
     private string GetSelectedGameMode()
     {
         return this._gameModes[this._selectedGameModeIndex];
+    }
+
+    /**
+     * Gets _selectedGameModeIndex from the current game config.
+     */
+    private int GetGameModeIndex(string gameMode)
+    {
+        return Array.FindIndex(this._gameModes, str => str == gameMode);
     }
 }
