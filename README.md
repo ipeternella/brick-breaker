@@ -144,3 +144,20 @@ Example:
 # Running on a macOS machine
 bash tests.sh /Applications/Unity/Hub/Editor/2019.3.7f1/Unity.app/Contents/MacOS/Unity ~/Documents/git/brick-breaker
 ```
+
+## Curiosity: Game Sketches and Ideas
+
+Some sketches used to draw some ideas and bring them to life!
+
+### Game Session and Game Session Loader
+
+Game session (player lives, scores, game speed, etc.) is initialized by a dedicated class: `GameSessionLoader`
+which can also be used to LOAD future saved game files. 
+
+![Alt text](Docs/Sketches/SketchGameSession.png)
+
+### Options menu
+
+A draft of the options menu mechanics
+
+![Alt text](Docs/Sketches/SketchOptionsMenu.png)
