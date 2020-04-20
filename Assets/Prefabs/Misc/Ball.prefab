@@ -97,11 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3711d50663f48878457ff1bd6b1ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddle: {fileID: 0}
-  initialBallSpeed: {x: 4, y: 15}
+  paddle: {fileID: 985522586980336445, guid: 1dc4cf8409858436f9b5660273cb0568, type: 3}
+  initialBallSpeed: {x: 4, y: 12}
   bumpAudioClips:
   - {fileID: 8300000, guid: 2534f1b2a726847698e12bca09d36253, type: 3}
   - {fileID: 8300000, guid: 784e856801b4f4244987ce29199f8236, type: 3}
+  bounceRandomnessFactor: 1
   distanceToTopOfPaddle: {x: 0, y: 0}
   hasBallBeenShot: 0
 --- !u!50 &8052374309985418524
