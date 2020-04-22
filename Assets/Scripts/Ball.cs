@@ -1,51 +1,48 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
-
-    // configuration based on the UI
-    [SerializeField] public Paddle paddle;  // bound to the Paddle object on the UI
-    [SerializeField] public Vector2 initialBallSpeed = new Vector2(2f, 10f);  // bound to the Paddle object on the UI
-    [SerializeField] public AudioClip[] bumpAudioClips;  // audio clips defined on the UI of the scene
-    [SerializeField] public float bounceRandomnessFactor = 0.5f;
+    // constants
+    private const int MOUSE_PRIMARY_BUTTON = 0;
     
-    // state
+    // fields
+    [SerializeField] private Vector2 initialBallSpeed = new Vector2(2f, 10f);
+    [SerializeField] private float bounceRandomnessFactor = 0.5f;
+    [SerializeField] private AudioClip[] bumpAudioClips;
+    
+    private Paddle _paddle;
+    private Vector2 _initialDistanceToTopOfPaddle;
     private Rigidbody2D _rigidBody2D;
     private AudioSource _audioSource;
-    public Vector2 distanceToTopOfPaddle;
-    public bool hasBallBeenShot = false;
 
-    // inner configuration
-    private int MOUSE_PRIMARY_BUTTON = 0;
+    // properties
+    public Vector2 InitialBallSpeed { get; set; }
+    public Paddle Paddle { get; set; }
+    public bool HasBallBeenShot { get; set; } = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        _paddle = FindObjectOfType<Paddle>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        
+
         var ballPosition = transform.position;
-        var paddlePosition = paddle.transform.position;
+        var paddlePosition = _paddle.transform.position;
 
-        distanceToTopOfPaddle = ballPosition - paddlePosition;  // assumes ball always starts on TOP of the paddle
+        _initialDistanceToTopOfPaddle = ballPosition - paddlePosition;  // assumes ball always starts on TOP of the paddle
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-        // attaches ball to the paddle if it hasn't been shot yet 
-        if (!hasBallBeenShot)
-        {
-            // checks for mouse clicks
-            bool hasMouseClick = Input.GetMouseButtonDown(MOUSE_PRIMARY_BUTTON);
+        // if ball has been shot, no locking or shooting it again!
+        if (HasBallBeenShot) return;
+        
+        var hasMouseClick = Input.GetMouseButtonDown(MOUSE_PRIMARY_BUTTON);
+        var paddlePosition = _paddle.transform.position;
             
-            FixBallOnTopOfPaddle(paddle.transform.position, distanceToTopOfPaddle);
-            ShootBallOnClick(initialBallSpeed, hasMouseClick);
-        }
+        FixBallOnTopOfPaddle(paddlePosition, _initialDistanceToTopOfPaddle);
+        ShootBallOnClick(initialBallSpeed, hasMouseClick);
     }
     
     /**
@@ -61,11 +58,10 @@ public class Ball : MonoBehaviour
      */
     public void ShootBallOnClick(Vector2 initialBallSpeed, bool hasMouseClick)
     {
-        if (hasMouseClick)
-        {
-            hasBallBeenShot = true;
-            _rigidBody2D.velocity = initialBallSpeed;
-        }
+        if (!hasMouseClick) return;
+        
+        HasBallBeenShot = true;
+        _rigidBody2D.velocity = initialBallSpeed;
     }
 
     /**
@@ -86,13 +82,13 @@ public class Ball : MonoBehaviour
      */
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (hasBallBeenShot)
-        {
-            var randomBumpAudioIndex = Random.Range(0, bumpAudioClips.Length);
-            AudioClip bumpAudio = bumpAudioClips[randomBumpAudioIndex];
+        if (!HasBallBeenShot) return;  // ball must have been shot first
+        
+        var randomBumpAudioIndex = Random.Range(0, bumpAudioClips.Length);
+        AudioClip bumpAudio = bumpAudioClips[randomBumpAudioIndex];
             
-            _audioSource.PlayOneShot(bumpAudio);
-            _rigidBody2D.velocity += GetRandomVelocityBounce();
-        }
+        _audioSource.PlayOneShot(bumpAudio);
+        _rigidBody2D.velocity += GetRandomVelocityBounce();
     }
+
 }

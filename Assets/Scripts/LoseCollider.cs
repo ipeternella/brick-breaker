@@ -32,6 +32,6 @@ public class LoseCollider : MonoBehaviour
     private void FixBallOnPaddleAfterLoss()
     {
         var ball = FindObjectOfType<Ball>();
-        ball.hasBallBeenShot = false;
+        ball.HasBallBeenShot = false;
     }
 }
