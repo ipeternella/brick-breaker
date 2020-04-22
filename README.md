@@ -1,25 +1,40 @@
 # Brick Breaker
 
-A simple brick breaker game created with Unity and C#!
+A simple brick breaker game created with Unity and C# with many VFX, SFX and game soundtracks!
+
+![Alt text](Docs/GameplayDemo.gif)
 
 ### Features
 
-* Main menu and options menu which allows the player to change the `game difficulty` (easy, normal, hard, inhuman);
+* `Main menu and options menu` which allows the player to change the game difficulty (easy, normal, hard, inhuman);
 * 3 game play levels (so far);
 * `Player score`, `player lives` and `game speed` that changes according to game difficulty;
 * `Various blocks` (many colors, sizes) with that can take more hits;
-* Particle effects upon block destruction;
-* VFX and SFX for ball bounces and block destruction (open source audio);
+* `Particle effects` upon block destruction;
+* `VFX and SFX` for ball bounces and block destruction (open source audio from the internet);
+* `Sound tracks`: each level/scene has its own sound track! All credits to the artists!
 
-## Gameplay Demonstration
+## Game Official Sound Track (OST)
 
-![Alt text](Docs/GameplayDemo.gif)
- 
+### 1. Sound tracks
+
+All the sound tracks were created bt the artist `airtone` who I thank a LOT for the support!
+
+- `Main Menu/Options Menu`: nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
+- `Level 1`: reNovation by airtone (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/60674  
+- `Level 2`: ukeSounds by airtone (c) copyright 2011 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/32655 
+- `Level 3`: Not too quiet by zikweb (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/zikweb/17624  
+- `Game Over`: Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/cdk/14246 
+
+### 2. Sound effects
+
+The ball bouncing sounds and block destruction sounds were open source audio download from the internet.
+
+- `Block hits`: NeoSpica - https://freesound.org/people/NeoSpica/sounds/512243/
+
 # Game Manual
 
-## Objectives
-
-The object is simple: BREAK all the blocks without having your player lives reduced to zero!
+The game objective is simple: BREAK all the blocks without having your player lives reduced to zero!
 
 - `TO BREAK the blocks`: hit them with the ball!
 - `TO advance to the next level`: break ALL the blocks on the current level
@@ -144,23 +159,6 @@ Example:
 # Running on a macOS machine
 bash tests.sh /Applications/Unity/Hub/Editor/2019.3.7f1/Unity.app/Contents/MacOS/Unity ~/Documents/git/brick-breaker
 ```
-
-## Game Soundtrack
-
-### 1. Sound tracks
-
-All the sound tracks were created bt the artist `airtone` who I thank a LOT for the support!
-
-`Main Menu/Options Menu`: nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
-`Level 1`: reNovation by airtone (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/60674  
-`Level 2`: ukeSounds by airtone (c) copyright 2011 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/32655 
-`Level 3`: Not too quiet by zikweb (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/zikweb/17624  
-`Game Over`: Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/cdk/14246 
-
-### 2. Sound effects
-
-The ball bouncing sounds and block destruction sounds were open source audio download from the internet.
-
 
 ## Curiosity: Game Sketches and Ideas
 
