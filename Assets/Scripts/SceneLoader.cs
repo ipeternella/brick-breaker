@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,5 +29,13 @@ public class SceneLoader : MonoBehaviour
    public void Quit()
    {
       Application.Quit();
+   }
+
+   /**
+    * Hides the mouse cursor.
+    */
+   public void Start()
+   {
+      Cursor.visible = false;
    }
 }
