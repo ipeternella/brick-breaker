@@ -14,11 +14,12 @@ A simple brick breaker game created with Unity and C# with many VFX, SFX and gam
 * `VFX and SFX` for ball bounces and block destruction (open source audio from the internet);
 * `Sound tracks`: each level/scene has its own sound track! All credits to the artists!
 
-## Game Official Sound Track (OST)
+## Brick Breaker's Official Sound Track (OST)
 
-### 1. Sound tracks
+### 1. Soundtracks
 
-All the sound tracks were created bt the artist `airtone` who I thank a LOT for the support!
+I thank A LOT the following artists for the soundtracks that were used on this game! These tracks were download from http://dig.ccmixter.org
+which I recommend a lot for downloading soundtracks for commercial and non-commercial use! 
 
 - `Main Menu/Options Menu`: nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
 - `Level 1`: reNovation by airtone (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/60674  
