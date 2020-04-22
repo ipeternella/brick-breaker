@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
@@ -85,10 +86,21 @@ public class Ball : MonoBehaviour
         if (!HasBallBeenShot) return;  // ball must have been shot first
         
         var randomBumpAudioIndex = Random.Range(0, bumpAudioClips.Length);
-        AudioClip bumpAudio = bumpAudioClips[randomBumpAudioIndex];
+        var signVelocityY = Math.Sign(_rigidBody2D.velocity.y);
+        var signVelocityX = Math.Sign(_rigidBody2D.velocity.x);
+        
+        var correctVelocityY = _rigidBody2D.velocity.y;
+        var correctVelocityX = _rigidBody2D.velocity.x;
+        
+        var bumpAudio = bumpAudioClips[randomBumpAudioIndex];
             
         _audioSource.PlayOneShot(bumpAudio);
-        _rigidBody2D.velocity += GetRandomVelocityBounce();
+        // _rigidBody2D.velocity += GetRandomVelocityBounce();
+
+        if (Math.Abs(_rigidBody2D.velocity.y) < 4f) correctVelocityY = 4f * signVelocityY;
+        if (Math.Abs(_rigidBody2D.velocity.x) < 4f) correctVelocityX = 4f * signVelocityX;
+        
+        _rigidBody2D.velocity = new Vector2(correctVelocityX, correctVelocityY);
     }
 
 }
