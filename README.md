@@ -14,7 +14,7 @@ A simple brick breaker game created with Unity and C#!
 ## Gameplay Demonstration
 
 ![Alt text](Docs/GameplayDemo.gif)
-
+ 
 # Game Manual
 
 ## Objectives
@@ -144,6 +144,23 @@ Example:
 # Running on a macOS machine
 bash tests.sh /Applications/Unity/Hub/Editor/2019.3.7f1/Unity.app/Contents/MacOS/Unity ~/Documents/git/brick-breaker
 ```
+
+## Game Soundtrack
+
+### 1. Sound tracks
+
+All the sound tracks were created bt the artist `airtone` who I thank a LOT for the support!
+
+`Main Menu/Options Menu`: nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
+`Level 1`: reNovation by airtone (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/60674  
+`Level 2`: ukeSounds by airtone (c) copyright 2011 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/32655 
+`Level 3`: Not too quiet by zikweb (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/zikweb/17624  
+`Game Over`: Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/cdk/14246 
+
+### 2. Sound effects
+
+The ball bouncing sounds and block destruction sounds were open source audio download from the internet.
+
 
 ## Curiosity: Game Sketches and Ideas
 
