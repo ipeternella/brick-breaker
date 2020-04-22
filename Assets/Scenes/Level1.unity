@@ -3317,8 +3317,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8052374309985418527, guid: 47368a3e0f7a7473cba109fd03b37135,
         type: 3}
+      propertyPath: bumpAudioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052374309985418527, guid: 47368a3e0f7a7473cba109fd03b37135,
+        type: 3}
       propertyPath: paddle
       value: 
       objectReference: {fileID: 1292535422}
+    - target: {fileID: 8052374309985418527, guid: 47368a3e0f7a7473cba109fd03b37135,
+        type: 3}
+      propertyPath: bumpAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2534f1b2a726847698e12bca09d36253, type: 3}
+    - target: {fileID: 8052374309985418527, guid: 47368a3e0f7a7473cba109fd03b37135,
+        type: 3}
+      propertyPath: bumpAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 784e856801b4f4244987ce29199f8236, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47368a3e0f7a7473cba109fd03b37135, type: 3}

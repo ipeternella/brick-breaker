@@ -2,6 +2,7 @@
 
 public class Block : MonoBehaviour
 {
+    
     // configuration
     [SerializeField] public AudioClip destroyedBlockSound;
     [SerializeField] public float soundVolume = 0.05f;
@@ -11,6 +12,7 @@ public class Block : MonoBehaviour
 
     // references to other objects
     private LevelController _levelController;
+    private Vector3 _soundPosition;
 
     // state
     private int _currentHits = 0;
@@ -19,9 +21,10 @@ public class Block : MonoBehaviour
     {
         // selects other game object without SCENE binding: programatically via API
         _levelController = FindObjectOfType<LevelController>();
+        _soundPosition = FindObjectOfType<Camera>().transform.position;
 
         // increment the block counter if the block's breakable
-        if (this.tag == "Breakable") _levelController.IncrementBlocksCounter();
+        if (CompareTag("Breakable")) _levelController.IncrementBlocksCounter();
     }
     
     /**
@@ -29,20 +32,19 @@ public class Block : MonoBehaviour
      */
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.tag == "Breakable")
-        {
-            // increases number of hits and destroy it, if necessary
-            _currentHits++;
+        if (!CompareTag("Breakable")) return;
+        
+        // increases number of hits and destroy it, if necessary
+        _currentHits++;
             
-            if (_currentHits < maxHits)
-            {
-                // Updates sprite image if block has taken too much damage
-                UpdateSpriteIfTooDamaged();
-            }
-            else
-            {
-                DestroyItself();    
-            }
+        if (_currentHits < maxHits)
+        {
+            // Updates sprite image if block has taken too much damage
+            UpdateSpriteIfTooDamaged();
+        }
+        else
+        {
+            DestroyItself();    
         }
     }
     
@@ -106,7 +108,7 @@ public class Block : MonoBehaviour
         ShowDestroyedBlockParticles();
 
         // plays destroyed block sound SFX
-        AudioSource.PlayClipAtPoint(destroyedBlockSound, Camera.current.transform.position, soundVolume);
+        AudioSource.PlayClipAtPoint(destroyedBlockSound, _soundPosition, soundVolume);
         Destroy(this.gameObject);
     }
 
