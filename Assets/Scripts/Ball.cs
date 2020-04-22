@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
     public Paddle Paddle { get; set; }
     public bool HasBallBeenShot { get; set; } = false;
 
-    private void Start()
+    private void Awake()
     {
         _paddle = FindObjectOfType<Paddle>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
