@@ -19,7 +19,7 @@ This is a `non-commercial` software project which was created only for education
 
 However, external resources, that have been made available by artists on internet websites, have been used in this project.   
 Credit is given as follows in the `Soundtracks and Sound Effects` and `Graphics` sections and these artists hold the rights for their respective
-resources. Please, refer to these websites and artists to know more and get the appropriate authorization to use their resources. 
+resources. Please, refer to these websites and authors to know more and get the appropriate authorization to use their resources. 
 
 ## Soundtracks and Sound Effects
 
