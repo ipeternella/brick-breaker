@@ -11,11 +11,17 @@ A simple brick breaker game created with Unity and C# with many VFX, SFX and gam
 - `Various blocks` to destroy (with many colors, sizes and health points)
 - `Particle effects` that are generated randomly when blocks are destroyed
 - `VFX and SFX` that are played when the balls bounces 
- - `Soundtracks`: each level/scene has its own sound track! All credits to the artists!
+- `Soundtracks`: each level/scene has its own sound track! All credits to the artists!
 
-**DISCLAIMER**: This is a `non-commercial` project which was created only for educational purposes. 
+## DISCLAIMER 
 
-## Brick Breaker's Official Sound Track (OST)
+This is a `non-commercial` software project which was created only for educational purposes.
+
+However, external resources, that have been made available by artists on internet websites, have been used in this project.   
+Credit is given as follows in the `Soundtracks and Sound Effects` and `Graphics` sections and these artists hold the rights for their respective
+resources. Please, refer to these websites and artists to know more and get the appropriate authorization to use their resources. 
+
+## Soundtracks and Sound Effects
 
 ### Soundtracks
 
@@ -43,9 +49,31 @@ I thank A LOT the following artists for the soundtracks that were used on this g
 
 ### Sound effects
 
-The ball bouncing sounds and block destruction sounds were download from the internet:
+The block destruction sounds were downloaded from the internet:
 
-- `Block hits`: NeoSpica - https://freesound.org/people/NeoSpica/sounds/512243/
+- `Block hits`
+    - NeoSpica - https://freesound.org/people/NeoSpica/sounds/512243/
+    - Licensed under a `CC0 1.0 Universal (CC0 1.0) Public Domain Dedication`
+
+## Graphics
+
+### 8-bits themed graphics
+
+The 8-bits themed graphics  were created with the following tool:
+
+- https://www.piskelapp.com
+
+### Particles system effects
+
+These effects were created with Unity's built-in particles system creation tool.
+
+### Font - Press Start 2P
+
+This font was download from Google at:
+
+- https://fonts.google.com/specimen/Press+Start+2P
+
+This font is licensed under `Open Font License` and was created by `CodeMan38`.
 
 # Game Manual
 
