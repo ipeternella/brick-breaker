@@ -38,7 +38,7 @@ I thank A LOT the following artists for the soundtracks that were used on this g
     - http://dig.ccmixter.org/files/zikweb/17624  
     
 - `Game Over`: 
-    - Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license.
+    - Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 `Licensed under a Creative Commons Attribution (3.0) license`.
     - http://dig.ccmixter.org/files/cdk/14246 
 
 ### Sound effects
