@@ -4,32 +4,46 @@ A simple brick breaker game created with Unity and C# with many VFX, SFX and gam
 
 ![Alt text](Docs/GameplayDemo.gif)
 
-### Features
+## Features
 
-* `Main menu and options menu` which allows the player to change the game difficulty (easy, normal, hard, inhuman);
-* 3 game play levels (so far);
-* `Player score`, `player lives` and `game speed` that changes according to game difficulty;
-* `Various blocks` (many colors, sizes) with that can take more hits;
-* `Particle effects` upon block destruction;
-* `VFX and SFX` for ball bounces and block destruction (open source audio from the internet);
-* `Sound tracks`: each level/scene has its own sound track! All credits to the artists!
+- `Game Menus` (main, instructions and options) which allows the player to understand and customize the game difficulty
+- `Player score`, `player lives` and `game speed` that changes according to the set game difficulty
+- `Various blocks` to destroy (with many colors, sizes and health points)
+- `Particle effects` that are generated randomly when blocks are destroyed
+- `VFX and SFX` that are played when the balls bounces 
+ - `Soundtracks`: each level/scene has its own sound track! All credits to the artists!
+
+**DISCLAIMER**: This is a `non-commercial` project which was created only for educational purposes. 
 
 ## Brick Breaker's Official Sound Track (OST)
 
-### 1. Soundtracks
+### Soundtracks
 
-I thank A LOT the following artists for the soundtracks that were used on this game! These tracks were download from http://dig.ccmixter.org
-which I recommend a lot for downloading soundtracks for commercial and non-commercial use! 
+I thank A LOT the following artists for the soundtracks that were used on this game! These tracks were download from http://dig.ccmixter.org.
 
-- `Main Menu/Options Menu`: nightWalk by airtone (c) copyright 2017 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/56520 
-- `Level 1`: reNovation by airtone (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/60674  
-- `Level 2`: ukeSounds by airtone (c) copyright 2011 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/airtone/32655 
-- `Level 3`: Not too quiet by zikweb (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/zikweb/17624  
-- `Game Over`: Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/cdk/14246 
+- `Menus`:
+    - nightWalk by airtone (c) copyright 2017 Licensed under a `Creative Commons Attribution (3.0) license`. 
+    - http://dig.ccmixter.org/files/airtone/56520
+    
+- `Level 1`: 
+    - reNovation by airtone (c) copyright 2019 Licensed under a `Creative Commons Attribution (3.0) license`. 
+    - http://dig.ccmixter.org/files/airtone/60674  
+    
+- `Level 2`: 
+    - ukeSounds by airtone (c) copyright 2011 Licensed under a `Creative Commons Attribution (3.0) license`. 
+    - http://dig.ccmixter.org/files/airtone/32655
+     
+- `Level 3`: 
+    - Not too quiet by zikweb (c) copyright 2008 Licensed under a `Creative Commons Attribution (3.0) license`.
+    - http://dig.ccmixter.org/files/zikweb/17624  
+    
+- `Game Over`: 
+    - Midnight Theme (cdk mix) by Analog By Nature (c) copyright 2008 Licensed under a Creative Commons Attribution (3.0) license.
+    - http://dig.ccmixter.org/files/cdk/14246 
 
-### 2. Sound effects
+### Sound effects
 
-The ball bouncing sounds and block destruction sounds were open source audio download from the internet.
+The ball bouncing sounds and block destruction sounds were download from the internet:
 
 - `Block hits`: NeoSpica - https://freesound.org/people/NeoSpica/sounds/512243/
 
@@ -37,10 +51,10 @@ The ball bouncing sounds and block destruction sounds were open source audio dow
 
 The game objective is simple: BREAK all the blocks without having your player lives reduced to zero!
 
+- `TO WIN to the next level`: break ALL the blocks on the current level
 - `TO BREAK the blocks`: hit them with the ball!
-- `TO advance to the next level`: break ALL the blocks on the current level
-- `TO LOSE a player life`: let the ball fall down (off the screen)
-- `TO LOSE THE GAME`: let you player lives drop to less than zero.
+- `TO LOSE a life`: let the ball fall down (off the screen)
+- `TO LOSE THE GAME`: let your player lives drop to **less than zero**
 
 ## Game Modes (difficulties)
 
