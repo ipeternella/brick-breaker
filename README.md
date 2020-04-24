@@ -19,7 +19,7 @@ A simple brick breaker game created with Unity and C# with many VFX, SFX and gam
 
 ### Soundtracks
 
-I thank A LOT the following artists for the soundtracks that were used on this game! These tracks were download from http://dig.ccmixter.org.
+I thank A LOT the following artists for the soundtracks that were used on this game! These tracks were downloaded from http://dig.ccmixter.org.
 
 - `Menus`:
     - nightWalk by airtone (c) copyright 2017 Licensed under a `Creative Commons Attribution (3.0) license`. 
