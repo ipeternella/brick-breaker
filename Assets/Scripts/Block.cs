@@ -109,7 +109,7 @@ public class Block : MonoBehaviour
 
         // plays destroyed block sound SFX
         AudioSource.PlayClipAtPoint(destroyedBlockSound, _soundPosition, soundVolume);
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     /**

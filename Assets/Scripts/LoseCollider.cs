@@ -24,7 +24,11 @@ public class LoseCollider : MonoBehaviour
 
             // deduces a game life from the player
             gameSession.PlayerLives--;
-            FixBallOnPaddleAfterLoss();
+            FixBallOnPaddleAfterLoss();           
+        }
+
+        if (other.tag == "Potion")
+        {
             
         }
     }
