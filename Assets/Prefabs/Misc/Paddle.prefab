@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 7404370510152107523, guid: a4d8c668f2a564244a010564f2a918fa, type: 3}
   - {fileID: 2922998843409481093, guid: c25ccf028ce41ad4c8ec24029f86b259, type: 3}
   blocks: []
+  choose_number: 10
 --- !u!114 &6724193387979969966
 MonoBehaviour:
   m_ObjectHideFlags: 0

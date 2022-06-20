@@ -7,6 +7,8 @@ public class RandomPotion : MonoBehaviour
     //Prefabs potions drop
     [SerializeField] List<GameObject> listOfPotion;
     [SerializeField] List<GameObject> blocks;
+    
+    [SerializeField] int choose_number;// 10 là 100%
     private bool on;
 
     private void Start()
@@ -15,7 +17,7 @@ public class RandomPotion : MonoBehaviour
     }
     private void Update()
     {
-        int choose_number = 10; // 10 =100% 1 = 10%
+         
         int random_number = Random.Range(0, 10);
 
         for (int i = 0; i < blocks.Count; i++)
