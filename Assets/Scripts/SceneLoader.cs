@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
    // loads next scene based on the scene ordering defined on Unity > build settings
    public void LoadNextScene()
    {
-      int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+      int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; //?
       SceneManager.LoadScene(currentSceneIndex + 1);
    }
 
@@ -25,7 +25,7 @@ public class SceneLoader : MonoBehaviour
       // FindObjectOfType<GameState>().ResetState();
       SceneManager.LoadScene(0);
    }
-
+    // thoát game
    public void Quit()
    {
       Application.Quit();
@@ -36,6 +36,6 @@ public class SceneLoader : MonoBehaviour
     */
    public void Start()
    {
-      Cursor.visible = false;
+      Cursor.visible = false; //khi bấm play ẩn con trỏ chuột
    }
 }

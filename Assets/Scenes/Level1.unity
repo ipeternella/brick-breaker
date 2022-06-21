@@ -1493,6 +1493,7 @@ MonoBehaviour:
   - {fileID: 2922998843409481093, guid: c25ccf028ce41ad4c8ec24029f86b259, type: 3}
   - {fileID: 977524356107231618, guid: c572347dea0a4ea4ab191a54d84f287e, type: 3}
   blocks: []
+  choose_number: 0
 --- !u!1001 &1010191641
 PrefabInstance:
   m_ObjectHideFlags: 0

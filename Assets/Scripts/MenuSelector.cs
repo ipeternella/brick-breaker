@@ -41,7 +41,7 @@ public class MenuSelector : VerticalMenuSelector
         var currentMenu = this.GetCurrentMenu();
 
         if (currentMenu.name == MENU_OPTION_START) 
-            this.sceneLoader.LoadSceneByName("Level1");
+            this.sceneLoader.LoadSceneByName("LevelMap");
         
         else if (currentMenu.name == MENU_OPTION_INSTRUCTIONS) 
             this.sceneLoader.LoadSceneByName("InstructionsMenu");

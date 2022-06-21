@@ -167,7 +167,6 @@ public class Buff : MonoBehaviour
             {
                 timeGear = 10;
             }
-
         }
         if (collision.gameObject.name.StartsWith("Blue_Potion"))
         {

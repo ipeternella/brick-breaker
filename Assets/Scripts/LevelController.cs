@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UI.LevelMap;
 
 public class LevelController : MonoBehaviour
 {
     private readonly string GAME_OVER_SCENE_NAME = "Scenes/GameOver";
-    private readonly int NUMBER_OF_GAME_LEVELS = 3;
+    private readonly int NUMBER_OF_GAME_LEVELS = 40; // ban đầu là 3
     
     // UI elements
     [SerializeField] int blocksCounter;
@@ -39,6 +40,7 @@ public class LevelController : MonoBehaviour
             }
 
             // increases game level
+            MapManager.Instance.SetVictory(gameSession.GameLevel);
             gameSession.GameLevel++;
             _sceneLoader.LoadNextScene();
         }
