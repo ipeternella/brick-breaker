@@ -12,7 +12,7 @@ namespace UI.LevelMap
         private int RowCount {
             get
             {
-                return MapCount / MapRendererHorizontal.MAXItem;
+                return MapCount / MapRendererHorizontal.MAXItem; //số lượng Map/ số lượng trong hàng
             }
         }
 

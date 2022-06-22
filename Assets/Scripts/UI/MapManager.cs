@@ -16,7 +16,7 @@ namespace UI.LevelMap
         private List<Map> _maps;
 
         public int CurrentLevel { get; set; }
-        public int HighestLevel { get; private set; }
+        public int HighestLevel { get; private set; } //level lớn nhất hiện thời
 
         private float _starCount;
         public float StarCount => _starCount;
@@ -29,15 +29,15 @@ namespace UI.LevelMap
         {
             if (_instance != null) return;
             _instance = this;
-            _maps = LoadMap();
+            _maps = LoadMap();// bắt đầu game load map
         }
 
         public List<Map> LoadMap()
         {
             List<Map> maps = JsonConvert.DeserializeObject<List<Map>>(PlayerPrefs.GetString(MapLocation));
-            if (maps == null)
+            if (maps == null) // nếu map rỗng player mới vào game
             {
-                maps = new List<Map>();
+                maps = new List<Map>(); //mở khoá màn 1 cho player
                 for (int i = 0; i < 40; i++)
                 {
                     maps.Add(new Map()
@@ -49,17 +49,17 @@ namespace UI.LevelMap
                 }
             }
 
-            _starCount = 0;
+           // _starCount = 0;
             foreach (var map in maps)
             {
-                _starCount += map.starCount;
-                if (map.isLock) continue;
-                if (map.level > HighestLevel)
+                _starCount += map.starCount;// load số sao mỗi map
+                if (map.isLock) continue; //load khoá
+                if (map.level > HighestLevel) //nếu map.level cao hơn level cao nhất thì =
                     HighestLevel = map.level;
             }
 
             starCountController.Render();
-            return maps;
+            return maps; //dừng
         }
 
         public void SaveMap()

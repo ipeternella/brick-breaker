@@ -82,7 +82,7 @@ public class GameConfig //độ khó game
         gameModeConfig.Add("playerScore", 0);
         
         // initial level
-        gameModeConfig.Add("gameLevel", MapManager.Instance.CurrentLevel); // 
+        gameModeConfig.Add("gameLevel", MapManager.Instance.CurrentLevel); // `
 
         return gameModeConfig;
     }

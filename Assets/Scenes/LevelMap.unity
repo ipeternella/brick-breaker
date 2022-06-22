@@ -174,8 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starCountController: {fileID: 1852222980}
-  Save: 0
-  _maps: []
 --- !u!1 &433825803
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +483,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -621,7 +619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1650081657
@@ -783,7 +781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8438, y: -32.062668}
+  m_AnchoredPosition: {x: -0.8438, y: -37}
   m_SizeDelta: {x: 702.4409, y: 403.7517}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823181131
@@ -1367,7 +1365,7 @@ PrefabInstance:
     - target: {fileID: 2174940201303880940, guid: 1e059778f65d5854c933e39f04775d7c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00056379155
+      value: -0.0003932022
       objectReference: {fileID: 0}
     - target: {fileID: 2174940201303880940, guid: 1e059778f65d5854c933e39f04775d7c,
         type: 3}

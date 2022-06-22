@@ -30,7 +30,7 @@ public class Block : MonoBehaviour
     /**
      * Destroys the block upon a collision. 
      */
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other) // nếu va chạm
     {
         if (!CompareTag("Breakable")) return;
         
@@ -96,8 +96,8 @@ public class Block : MonoBehaviour
         PlayDestructionEffects();
 
         // increments destroyed blocks of the level
-        _levelController.DecrementBlocksCounter();
-    }
+        _levelController.DecrementBlocksCounter(); //giảm 1 lầm số Block xuống
+    } 
 
     /**
      * Plays VFX and SFX when a block is destroyed.
@@ -109,7 +109,7 @@ public class Block : MonoBehaviour
 
         // plays destroyed block sound SFX
         AudioSource.PlayClipAtPoint(destroyedBlockSound, _soundPosition, soundVolume);
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false); //fix chổ này
     }
 
     /**

@@ -6,13 +6,18 @@ using TMPro;
 public class LoadMap : MonoBehaviour
 {
     List<BlockPosition> blockPosition = new List<BlockPosition>();
-
+    
     public GameObject[] prefap;
     public int y;
-
-    void Start()
+    public int map;
+    private void Start()
     {
-        TextAsset questdata = Resources.Load<TextAsset>("Level_1"); //lấy dữ liệu từ Level_1 csv. Level_1 csv phải chứa trong Resources để truyền vào
+        nextMap();
+    }
+    public void nextMap()
+    {
+        map  ++;
+        TextAsset questdata = Resources.Load<TextAsset>("Level_"+map.ToString()); //lấy dữ liệu từ Level_1 csv. Level_1 csv phải chứa trong Resources để truyền vào
  
         string[] data = questdata.text.Split(new char[] { '\n'}); //tạo mảng data chứa 13 dòng 
         Debug.Log(data.Length);// =13 số dòng. dòng cuối rỗng
@@ -27,8 +32,7 @@ public class LoadMap : MonoBehaviour
                 _Block.positionX = j + 0.5f;
 
                 blockPosition.Add(_Block);
-            }
-       // Debug.Log(row.Length);      
+            }     
         }
        
 
