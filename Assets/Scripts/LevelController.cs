@@ -15,11 +15,13 @@ public class LevelController : MonoBehaviour
     // state
      private SceneLoader _sceneLoader;
     private LoadMap _csvLoader; //load map theo csv
+    private RandomPotion _PotionLoader;
 
     private void Start()
     {
-        _sceneLoader = FindObjectOfType<SceneLoader>();
         _csvLoader = FindObjectOfType<LoadMap>();
+        _sceneLoader = FindObjectOfType<SceneLoader>();
+        _PotionLoader = FindObjectOfType<RandomPotion>();
     }
 
     public void IncrementBlocksCounter() //tăng dần
@@ -46,6 +48,7 @@ public class LevelController : MonoBehaviour
             gameSession.GameLevel++;// tìm game level
         // _sceneLoader.LoadNextScene(); //tắt cái này là hok loadNextScene // nếu viết hàm load csv ở đây thì win
             _csvLoader.nextMap();
+            _PotionLoader.getlistBlock();
         }
     }
     

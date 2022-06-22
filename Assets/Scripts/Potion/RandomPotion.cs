@@ -13,11 +13,15 @@ public class RandomPotion : MonoBehaviour
 
     private void Start()
     {
-        blocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Breakable")); //list các block có thể breack// chỉ tìm đầu game nếu intan sẽ không tìm thấy
+        getlistBlock();
+    }
+    public void getlistBlock()
+    {
+        blocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Breakable"));//list các block có thể breack// chỉ tìm đầu game các block có sẵn nếu nhân bản sẽ không tìm thấy
     }
     private void Update()
     {
-         
+        
         int random_number = Random.Range(0, 10);
 
         for (int i = 0; i < blocks.Count; i++)
@@ -50,7 +54,7 @@ public class RandomPotion : MonoBehaviour
             }
             if (on == true)
             {
-                blocks.Remove(blocks[i]);
+                blocks.Remove(blocks[i]); //xoá block khỏi list
                 on = false;
             }
         }
