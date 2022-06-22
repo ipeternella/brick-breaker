@@ -26,8 +26,6 @@ public class Buff : MonoBehaviour
         UpdateAndCheckGearPotion();
         UpdateAndCheckBlueBottle();
 
-
-
     }
     private void RemoveGearPotionEffect()
     {

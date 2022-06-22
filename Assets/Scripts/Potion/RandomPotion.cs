@@ -13,7 +13,7 @@ public class RandomPotion : MonoBehaviour
 
     private void Start()
     {
-        blocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Breakable")); //list các block có thể breack
+        blocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Breakable")); //list các block có thể breack// chỉ tìm đầu game nếu intan sẽ không tìm thấy
     }
     private void Update()
     {
