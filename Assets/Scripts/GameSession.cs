@@ -70,7 +70,7 @@ public class GameSession : MonoBehaviour
         playerScoreText.text = this.PlayerScore.ToString();
     }
 
-    private void StartGameSession() //load snece khi bắt đầu game lấy thông tin từ gameConfib truyền qua gameSession
+    public void StartGameSession() //load snece khi bắt đầu game lấy thông tin từ gameConfib truyền qua gameSession
     {
         var gameModeConfig = GameConfig.Instance.GetGameModeConfig();
 

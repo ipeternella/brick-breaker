@@ -5,20 +5,26 @@ using TMPro;
 
 public class LoadMap : MonoBehaviour
 {
-    List<BlockPosition> blockPosition = new List<BlockPosition>();
-    
+    List<BlockPosition> blockPosition = new List<BlockPosition>();  
     public GameObject[] prefap;
-    public int y;
+    public int _typeBlock;
     public int map;
-    private void Start()
+
+    public void nextMap() 
     {
-        nextMap();
+        map++;
+        TextAsset questdata = Resources.Load<TextAsset>("Level_" + map.ToString()); //lấy dữ liệu từ Level_1 csv. Level_1 csv phải chứa trong Resources để truyền vào
+        loadMap(questdata);
     }
-    public void nextMap()
+    public void LoadMapByName(int level)
     {
-        map  ++;
-        TextAsset questdata = Resources.Load<TextAsset>("Level_"+map.ToString()); //lấy dữ liệu từ Level_1 csv. Level_1 csv phải chứa trong Resources để truyền vào
- 
+        map = level;
+        TextAsset questdata = Resources.Load<TextAsset>("Level_"+ level.ToString());
+        loadMap(questdata);
+        GameSession.Instance.StartGameSession();
+    }
+    private void loadMap(TextAsset questdata)
+    {  
         string[] data = questdata.text.Split(new char[] { '\n'}); //tạo mảng data chứa 13 dòng 
         Debug.Log(data.Length);// =13 số dòng. dòng cuối rỗng
         for (int i =1; i <data.Length -1; i++) // với mỗi dòng i
@@ -33,27 +39,17 @@ public class LoadMap : MonoBehaviour
 
                 blockPosition.Add(_Block);
             }     
-        }
-       
-
-       foreach (var x in blockPosition)
+        }       
+        // Cắt phần dưới ra vì mình đã có danh sách và suất Block ra theo poop ko dùng Instantiate nữa
+       foreach (var NumberCSV in blockPosition)
        {
-            if (x.typeBlock == -1) y = 0;
-            if (x.typeBlock == 0) y = 3;
-            if (x.typeBlock == 1) y = 1;
-            if(x.typeBlock == 2) y = 2;
-            //Debug.Log(x.positionY.ToString());
-
-            GameObject blog = Instantiate(prefap[y], new Vector2(x.positionX, x.positionY), Quaternion.identity);
-            
+            if (NumberCSV.typeBlock == -1) _typeBlock = 0;           
+            if (NumberCSV.typeBlock == 1) _typeBlock = 1;
+            if (NumberCSV.typeBlock == 2) _typeBlock = 2;
+            if (NumberCSV.typeBlock != 0)
+            {
+                GameObject blog = Instantiate(prefap[_typeBlock], new Vector2(NumberCSV.positionX, NumberCSV.positionY), Quaternion.identity);
+            }
         }
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

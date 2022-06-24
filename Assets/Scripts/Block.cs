@@ -24,7 +24,8 @@ public class Block : MonoBehaviour
         _soundPosition = FindObjectOfType<Camera>().transform.position;
 
         // increment the block counter if the block's breakable
-        if (CompareTag("Breakable")) _levelController.IncrementBlocksCounter();
+        if (CompareTag("Breakable"))
+            _levelController.IncrementBlocksCounter();
     }
     
     /**

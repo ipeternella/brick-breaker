@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RandomPotion : MonoBehaviour
 {
     //Prefabs potions drop
@@ -18,7 +19,13 @@ public class RandomPotion : MonoBehaviour
     public void getlistBlock()
     {
         blocks = new List<GameObject>(GameObject.FindGameObjectsWithTag("Breakable"));//list các block có thể breack// chỉ tìm đầu game các block có sẵn nếu nhân bản sẽ không tìm thấy
+        if (blocks.Count == 0) StartCoroutine(loadBlocks());
     }
+    private IEnumerator loadBlocks() //load level khi bấm bất kỳ
+    {
+        yield return new WaitForSeconds(0.15f);
+        getlistBlock();
+    }   
     private void Update()
     {
         

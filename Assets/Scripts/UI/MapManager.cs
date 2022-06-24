@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
+using System.Collections;
 
 namespace UI.LevelMap
 {
@@ -9,11 +10,16 @@ namespace UI.LevelMap
         private static MapManager _instance;
         public static MapManager Instance => _instance;
 
-        private const string MapLocation = "Key";
+        private const string MapLocation = "Key0";
 
         [SerializeField] private StarCountController starCountController;
 
+        private LoadMap LevelMap;
+        private int Level;
+
         private List<Map> _maps;
+        public List<Map> Maps => _maps;
+        public int MapCount => _maps.Count;
 
         public int CurrentLevel { get; set; }
         public int HighestLevel { get; private set; } //level lớn nhất hiện thời
@@ -21,15 +27,22 @@ namespace UI.LevelMap
         private float _starCount;
         public float StarCount => _starCount;
 
-        public int MapCount => _maps.Count;
-        public List<Map> Maps => _maps;
 
 
-        private void Awake()
+
+        private void Start() //cứ load scene là chạy dù đang dontdestroyonlog
         {
+            Debug.Log("11");
+            _maps = LoadMap();// bắt đầu game load map// load 1 lần duy nhất khi play
+
+        }
+
+
+        private void Awake()// chạy 1 lần duy nhất khi dontdestroyonlog
+        {
+            LevelMap = FindObjectOfType<LoadMap>();// đây là load level không phải loadmap // sau đó next map nên không sao
             if (_instance != null) return;
             _instance = this;
-            _maps = LoadMap();// bắt đầu game load map
         }
 
         public List<Map> LoadMap()
@@ -49,16 +62,18 @@ namespace UI.LevelMap
                 }
             }
 
-           // _starCount = 0;
+            // _starCount = 0;
             foreach (var map in maps)
             {
                 _starCount += map.starCount;// load số sao mỗi map
                 if (map.isLock) continue; //load khoá
-                if (map.level > HighestLevel) //nếu map.level cao hơn level cao nhất thì =
-                    HighestLevel = map.level;
+                if (map.level > HighestLevel) //nếu map.level cao hơn level cao nhất thì = truyền vào HighLevel
+                    HighestLevel = map.level; //lặp đi 40 lần.
             }
-
-            starCountController.Render();
+            if (starCountController != null)
+            {
+                starCountController.Render();
+            }
             return maps; //dừng
         }
 
@@ -67,7 +82,7 @@ namespace UI.LevelMap
             PlayerPrefs.SetString(MapLocation, JsonConvert.SerializeObject(_maps));
         }
 
-        public void SetVictory(int level)
+        public void SetVictory(int level)// levelcontroler thực hiện load tìm nó
         {
             //Convert level to index of maps
             CurrentLevel++;
@@ -80,5 +95,15 @@ namespace UI.LevelMap
 
             SaveMap();
         }
-    }
+        public void map(int level)
+        {
+            Level = level;          
+            StartCoroutine(loadLevel());
+        }
+        private IEnumerator loadLevel() //load level khi bấm bất kỳ
+        {
+            yield return new WaitForSeconds(0.1f);
+            LevelMap.LoadMapByName(Level);           
+        }
+    } 
 }

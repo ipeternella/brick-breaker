@@ -47,13 +47,13 @@ public class Buff : MonoBehaviour
     }
     private void RemoveBlueBottleEffect()
     {
-        stackBlue = 0;
+        
         // chỉ reset những t < 10
-        if (t1 < 10f) t1 = -.01f;
-        if (t2 < 10f) t2 = -.01f;
-        if (t3 < 10f) t3 = -.01f;
-        if (t4 < 10f) t4 = -.01f;
-        if (t5 < 10f) t5 = -.01f;
+        if (t1 < 10f) t1 = .01f;
+        if (t2 < 10f) t2 = .01f;
+        if (t3 < 10f) t3 = .01f;
+        if (t4 < 10f) t4 = .01f;
+        if (t5 < 10f) t5 = .01f;
     }
     private void UpdateAndCheckBlueBottle() // đến ngược time BlueBottle
     {

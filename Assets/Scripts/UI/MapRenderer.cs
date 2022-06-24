@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -27,9 +27,9 @@ namespace UI.LevelMap
         public bool HasLine => _hasLine;
         
 
-        private void Start()
+        private void Start() //bắt đầu Render khi chạy game
         {
-            RenderLevel();
+            RenderLevel(); 
             RenderStar();
             RenderLock();
         }
@@ -37,7 +37,7 @@ namespace UI.LevelMap
         public void SetLevel(int level)
         {
             _level = level;
-            RenderLevel();
+            RenderLevel();  
         }
 
         public void SetStar(int starCount)
@@ -88,11 +88,16 @@ namespace UI.LevelMap
             line.enabled = _hasLine;
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerClick(PointerEventData eventData) // nếu click
         {
-            if (_isLock) return;
+            if (_isLock) return; //nếu true thì không thực hiện 2 dòng dưới
+            //Nếu mở khoá
             MapManager.Instance.CurrentLevel = _level;
-            SceneManager.LoadScene($"Level{_level}");
+            SceneManager.LoadScene("Level3");//đây là chổ load scene nếu click vào thay đổi chổ này là ok
+            MapManager.Instance.map( _level);//truyền level tới mapManager => LoadScene. Vì đổi scene thằng này sẽ biến mất
+            //loadMap.LoadMapByName("Level_"+_level.ToString());
+            //_loadMap();
+            
         }
     }
 }

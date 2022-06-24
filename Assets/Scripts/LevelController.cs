@@ -33,7 +33,7 @@ public class LevelController : MonoBehaviour
     {
         blocksCounter--;
 
-        if (blocksCounter <= 0) //Nếu blocksCounter <0 hết block đễ phá => win game. tìm nó được thằng nào truyền vào
+        if (blocksCounter <= 0) //Nếu blocksCounter <0 hết block đễ phá => win game. 
         {
             var gameSession = GameSession.Instance;// điên máu gọi nó đến và dùng nó mà không cần khai báo 
             
@@ -44,11 +44,13 @@ public class LevelController : MonoBehaviour
             }
 
             // increases game level
-            MapManager.Instance.SetVictory(gameSession.GameLevel);
+            MapManager.Instance.SetVictory(gameSession.GameLevel); // thực hiện save và tăng sao => qua màn là save            
             gameSession.GameLevel++;// tìm game level
         // _sceneLoader.LoadNextScene(); //tắt cái này là hok loadNextScene // nếu viết hàm load csv ở đây thì win
             _csvLoader.nextMap();
             _PotionLoader.getlistBlock();
+            //tìm thằng thua thì load số sao
+
         }
     }
     
