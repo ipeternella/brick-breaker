@@ -3,7 +3,10 @@
     "rootNamespace": "",
     "references": [
         "Unity.TextMeshPro",
-        "EnhancedScroller"
+        "EnhancedScroller",
+        "Unity.ObjectPooling.Addressables",
+        "Unity.ObjectPooling",
+        "UniTask"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

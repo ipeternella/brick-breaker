@@ -7,15 +7,15 @@ public class Block : MonoBehaviour
     [SerializeField] public AudioClip destroyedBlockSound;
     [SerializeField] public float soundVolume = 0.05f;
     [SerializeField] public GameObject destroyedBlockParticlesVFX;
-    [SerializeField] public int maxHits;
-    [SerializeField] public Sprite[] damageSprites;
+    [SerializeField] public int maxHits; //số lần va chạm
+    [SerializeField] public Sprite[] damageSprites; //mảng hình ảnh, khi bị va chạm nứt dần
 
     // references to other objects
     private LevelController _levelController;
     private Vector3 _soundPosition;
 
     // state
-    private int _currentHits = 0;
+    private int _currentHits = 0; // ban đầu = 0
     
     void Start()
     {
@@ -24,8 +24,8 @@ public class Block : MonoBehaviour
         _soundPosition = FindObjectOfType<Camera>().transform.position;
 
         // increment the block counter if the block's breakable
-        if (CompareTag("Breakable"))
-            _levelController.IncrementBlocksCounter();
+    //    if (CompareTag("Breakable"))// bỏ lúc đầu game vô màn đầu tiền
+    //        _levelController.IncrementBlocksCounter();
     }
     
     /**
@@ -33,17 +33,17 @@ public class Block : MonoBehaviour
      */
     private void OnCollisionEnter2D(Collision2D other) // nếu va chạm
     {
-        if (!CompareTag("Breakable")) return;
-        
+        if (!CompareTag("Breakable")) return;// nếu block khác tag Breakable thì không thực hiện hàm dưới
+
         // increases number of hits and destroy it, if necessary
         _currentHits++;
             
-        if (_currentHits < maxHits)
+        if (_currentHits < maxHits) //nếu 1 < 2
         {
             // Updates sprite image if block has taken too much damage
             UpdateSpriteIfTooDamaged();
         }
-        else
+        else // nếu 1 = 1
         {
             DestroyItself();    
         }
@@ -54,7 +54,7 @@ public class Block : MonoBehaviour
      */
     private void UpdateSpriteIfTooDamaged()
     {
-        var ix = GetDamageSpriteIndex(this._currentHits, this.maxHits, this.damageSprites.Length);
+        var ix = GetDamageSpriteIndex(this._currentHits, this.maxHits, this.damageSprites.Length);//
 
         this.gameObject.GetComponent<SpriteRenderer>().sprite = damageSprites[ix];
     }
@@ -91,7 +91,7 @@ public class Block : MonoBehaviour
     {
         // adds player points
         var gameState = FindObjectOfType<GameSession>();  // singleton
-        gameState.AddToPlayerScore(maxHits);
+        gameState.AddToPlayerScore(maxHits);// tăng điểm
 
         // plays VFX and SFX for the destruction
         PlayDestructionEffects();
@@ -110,7 +110,9 @@ public class Block : MonoBehaviour
 
         // plays destroyed block sound SFX
         AudioSource.PlayClipAtPoint(destroyedBlockSound, _soundPosition, soundVolume);
-        this.gameObject.SetActive(false); //fix chổ này
+        //this.gameObject.SetActive(false); //fix chổ này
+
+        FindObjectOfType<LoadMap>().Return(gameObject);   
     }
 
     /**

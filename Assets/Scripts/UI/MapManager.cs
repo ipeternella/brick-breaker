@@ -10,7 +10,7 @@ namespace UI.LevelMap
         private static MapManager _instance;
         public static MapManager Instance => _instance;
 
-        private const string MapLocation = "Key0";
+        private const string MapLocation = "Key";
 
         [SerializeField] private StarCountController starCountController;
 
@@ -32,7 +32,6 @@ namespace UI.LevelMap
 
         private void Start() //cứ load scene là chạy dù đang dontdestroyonlog
         {
-            Debug.Log("11");
             _maps = LoadMap();// bắt đầu game load map// load 1 lần duy nhất khi play
 
         }
