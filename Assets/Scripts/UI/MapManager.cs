@@ -10,7 +10,7 @@ namespace UI.LevelMap
         private static MapManager _instance;
         public static MapManager Instance => _instance;
 
-        private const string MapLocation = "Key";
+        private const string MapLocation = "Key2";
 
         [SerializeField] private StarCountController starCountController;
 

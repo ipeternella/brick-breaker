@@ -15,7 +15,7 @@ public class Block : MonoBehaviour
     private Vector3 _soundPosition;
 
     // state
-    private int _currentHits = 0; // ban đầu = 0
+    public int _currentHits = 0; // ban đầu = 0
     
     void Start()
     {
@@ -112,7 +112,9 @@ public class Block : MonoBehaviour
         AudioSource.PlayClipAtPoint(destroyedBlockSound, _soundPosition, soundVolume);
         //this.gameObject.SetActive(false); //fix chổ này
 
-        FindObjectOfType<LoadMap>().Return(gameObject);   
+        FindObjectOfType<LoadMap>().Return(gameObject);
+        _currentHits = 0; //reset hit block lại
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = damageSprites[0];// reset hình ảnh lại
     }
 
     /**

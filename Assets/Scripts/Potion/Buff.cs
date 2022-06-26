@@ -155,7 +155,7 @@ public class Buff : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Gear"))
         {
-            Debug.Log("GEAR");
+            //Debug.Log("GEAR");
             if (isInGearPotion == false)
             {
                 isInGearPotion = true;
@@ -168,7 +168,7 @@ public class Buff : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Blue_Potion"))
         {
-            Debug.Log("Blue_Potion");
+            //Debug.Log("Blue_Potion");
             if (stackBlue < 5) // va chạm thì - velocity ball tối đa không quá 5 lần 
             {                
                 ball.velocity = new Vector2(ball.velocity.x * (1 - 0.1f), ball.velocity.y * (1 - 0.1f));
@@ -177,7 +177,7 @@ public class Buff : MonoBehaviour
         }
         if (collision.gameObject.name.StartsWith("Empty_Bottle"))
         {
-            Debug.Log("Empty");
+            //Debug.Log("Empty");
             ResetStatusOfPaddle();
         }
     }

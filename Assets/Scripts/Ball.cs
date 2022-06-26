@@ -58,7 +58,7 @@ public class Ball : MonoBehaviour
      * Fixes the ball on top of the paddle before the first mouse click.
      */
     public void FixBallOnTopOfPaddle(Vector2 paddlePosition, Vector2 distanceToPaddle) //truyền vị trí paddle ban đầu với khoảng cách ban đầu vào
-        //vì mình thiết lập thủ công vị trí pannel với ball ngay trên scene edit đặt ball lên trên pannel nên sẽ lấy vị trí khoảng cách này log đầu game
+        
     {
         transform.position = paddlePosition + distanceToPaddle;
     }

@@ -15,23 +15,28 @@ public class LevelController : MonoBehaviour
     // state
      private SceneLoader _sceneLoader;
     private LoadMap _csvLoader; //load map theo csv
-    private RandomPotion _PotionLoader;
+
 
     private void Start()
     {
         _csvLoader = FindObjectOfType<LoadMap>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
-        _PotionLoader = FindObjectOfType<RandomPotion>();
+ 
     }
-
+    public void resetBlocksCounter()
+    {
+        blocksCounter = 0;
+    }
     public void IncrementBlocksCounter() //tăng dần
     {
         blocksCounter++;
+        Debug.Log(blocksCounter+"tăng block");
     }
     
     public void DecrementBlocksCounter() // giảm dần thằng này không ở hàm update mà ở script block
     {
         blocksCounter--;
+        Debug.Log(blocksCounter+"giảm block");
 
         if (blocksCounter <= 0) //Nếu blocksCounter <0 hết block đễ phá => win game. 
         {
@@ -47,10 +52,9 @@ public class LevelController : MonoBehaviour
             MapManager.Instance.SetVictory(gameSession.GameLevel); // thực hiện save và tăng sao => qua màn là save            
             gameSession.GameLevel++;// tìm game level
         // _sceneLoader.LoadNextScene(); //tắt cái này là hok loadNextScene // nếu viết hàm load csv ở đây thì win
-            _csvLoader.nextMap();
-            _PotionLoader.getlistBlock();
-            //tìm thằng thua thì load số sao
-
+            _csvLoader.nextMap();// next map
+            FindObjectOfType<RandomPotion>().getlistBlock();//potion
+            Debug.Log(blocksCounter + "block =0 qua màn");
         }
     }
     
