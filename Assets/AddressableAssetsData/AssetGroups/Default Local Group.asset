@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 68abda4b0aaee064296178d58e8c1738
+  m_SerializeEntries:
+  - m_GUID: 95b29c3d187384d1c94f2fbc870e2465
+    m_Address: Assets/Prefabs/Blocks/UnbreakableBlock.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b659bd4ff687548a09a031c2e989b540
+    m_Address: Assets/Prefabs/Blocks/BreakableBlockHit1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 708d02db2e99e4c1bb378cc38d220c41
+    m_Address: Assets/Prefabs/Blocks/BreakableBlockHit2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b2bd84d34e5404411845b1fd6bf8ae52
+    m_Address: Assets/Prefabs/Blocks/BreakableBlockHealth2Hit.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 96e1afa02fb564ab5a8a630b72349793
+    m_Address: Assets/Prefabs/Blocks/TransparentBlock.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ea5bb45a21be94336a44d21b95992db3
+    m_Address: Assets/Prefabs/Blocks/BreakableBigBlockHit6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 69f8139d78c934d4ba6ad6753164ae57, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2c42dd2253720594093907fd0ed5a328, type: 2}
+    - {fileID: 11400000, guid: cad386f4a936cf74dbc198459658addd, type: 2}

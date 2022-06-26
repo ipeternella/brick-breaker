@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
    // loads next scene based on the scene ordering defined on Unity > build settings
-   public void LoadNextScene()
+   public void LoadNextScene() //load next scene bằng cách +1 scene hiện tại. tìm nó// load next map
    {
-      int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-      SceneManager.LoadScene(currentSceneIndex + 1);
+
+     // int currentSceneIndex = SceneManager.GetActiveScene().buildIndex; //?
+     // SceneManager.LoadScene(currentSceneIndex + 1);
    }
 
    // loads scene by its name
-   public void LoadSceneByName(string sceneName)
+   public void LoadSceneByName(string sceneName) //load sence theo tên
    {
       SceneManager.LoadScene(sceneName: sceneName);
    }
@@ -23,9 +24,9 @@ public class SceneLoader : MonoBehaviour
    public void LoadStartScene()
    {
       // FindObjectOfType<GameState>().ResetState();
-      SceneManager.LoadScene(0);
+      SceneManager.LoadScene(0); //load scene Start Menu
    }
-
+    // thoát game
    public void Quit()
    {
       Application.Quit();
@@ -36,6 +37,6 @@ public class SceneLoader : MonoBehaviour
     */
    public void Start()
    {
-      Cursor.visible = false;
+     // Cursor.visible = false; //khi bấm play ẩn con trỏ chuột
    }
 }

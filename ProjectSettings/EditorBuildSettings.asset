@@ -23,7 +23,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 5d67986d512f2488187df5600bd423e1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 195ed5c5c9eb54c4ebc7f226e1c0b39d
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/LevelMap.unity
+    guid: 4eb84198a8b206749aaf3494a7fd56d6
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 90d9c84d00d64734da40dde6bb9561de,
+      type: 2}

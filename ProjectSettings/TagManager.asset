@@ -8,6 +8,8 @@ TagManager:
   - Unbreakable
   - Transparent
   - MenuOptionWithChild
+  - Potion
+  - LoseCollider
   layers:
   - Default
   - TransparentFX
@@ -44,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 
+    uniqueID: 4078758769
     locked: 0

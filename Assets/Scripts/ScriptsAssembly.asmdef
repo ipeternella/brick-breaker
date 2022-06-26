@@ -1,4 +1,20 @@
-﻿{
-	"name": "ScriptsAssembly",
-	"references": [ "Unity.TextMeshPro" ]
+{
+    "name": "ScriptsAssembly",
+    "rootNamespace": "",
+    "references": [
+        "Unity.TextMeshPro",
+        "EnhancedScroller",
+        "Unity.ObjectPooling.Addressables",
+        "Unity.ObjectPooling",
+        "UniTask"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

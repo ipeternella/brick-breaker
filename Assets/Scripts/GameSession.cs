@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
+    // các hiển thị mạng số điểm level màn khi runtime
     // config
     [SerializeField] private TextMeshProUGUI playerScoreText;
     [SerializeField] private TextMeshProUGUI gameLevelText;
     [SerializeField] private TextMeshProUGUI playerLivesText;
 
     // state
-    private static GameSession _instance;
-    public static GameSession Instance => _instance;
+    private static GameSession _instance; // không truyền được
+    public static GameSession Instance => _instance; //công khai nên truyền lên trên nếu được truy cập và tuỳ chỉnh
 
-    public int GameLevel { get; set; }
+    public int GameLevel { get; set; } // không suất hiện trên ínspector
     public int PlayerScore { get; set; }
     public int PlayerLives { get; set; }
     public int PointsPerBlock { get; set; }
@@ -24,7 +25,7 @@ public class GameSession : MonoBehaviour
     private void Awake() 
     { 
         // this is not the first instance so destroy it!
-        if (_instance != null && _instance != this)
+        if (_instance != null && _instance != this) //
         { 
             Destroy(this.gameObject);
             return;
@@ -42,7 +43,8 @@ public class GameSession : MonoBehaviour
     {
         playerScoreText.text = this.PlayerScore.ToString();
         gameLevelText.text = this.GameLevel.ToString();
-        playerLivesText.text = this.PlayerLives.ToString();
+        playerLivesText.text = this.PlayerLives.ToString(); //truyền vào text
+        StartGameSession();
     }
 
     /**
@@ -66,5 +68,16 @@ public class GameSession : MonoBehaviour
     {
         this.PlayerScore += blockMaxHits * this.PointsPerBlock;
         playerScoreText.text = this.PlayerScore.ToString();
+    }
+
+    public void StartGameSession() //load snece khi bắt đầu game lấy thông tin từ gameConfib truyền qua gameSession
+    {
+        var gameModeConfig = GameConfig.Instance.GetGameModeConfig();
+
+        this.PlayerLives = (int)gameModeConfig["playerLives"]; //live
+        this.PointsPerBlock = (int)gameModeConfig["pointsPerBlock"]; // điểm khi block
+        this.GameSpeed = (float)gameModeConfig["gameSpeed"]; //speed ball
+        this.PlayerScore = (int)gameModeConfig["playerScore"];//
+        this.GameLevel = (int)gameModeConfig["gameLevel"];
     }
 }

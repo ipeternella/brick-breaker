@@ -19,12 +19,18 @@ public class LoseCollider : MonoBehaviour
             if (gameSession.PlayerLives <= 0)
             {
                 SceneManager.LoadScene(GAME_OVER_SCENE_NAME);
-                return;
+                FindObjectOfType<LoadMap>().ReturnAll(); //mạng xuống 0 thì xoá hết 
+                FindObjectOfType<LevelController>().resetBlocksCounter();
+                return;//nếu lives = 0; thì dừng không thực hiện 2 hàm dưới
             }
-
+            Debug.Log("live -1");
             // deduces a game life from the player
             gameSession.PlayerLives--;
-            FixBallOnPaddleAfterLoss();
+            FixBallOnPaddleAfterLoss(); //          
+        }
+
+        if (other.tag == "Potion")
+        {
             
         }
     }
